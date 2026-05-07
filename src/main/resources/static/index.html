@@ -335,14 +335,30 @@
         <h2 data-i18n="contact.title">Have a project in mind?</h2>
         <p data-i18n="contact.copy">요구사항을 남겨주시면 빠르게 검토 후 연락드리겠습니다.</p>
         <div class="contact-grid">
-          <form class="contact-form">
-            <input type="text" name="name" placeholder="이름" data-i18n-attr="placeholder:contact.form.namePlaceholder" />
-            <input type="email" name="email" placeholder="이메일" data-i18n-attr="placeholder:contact.form.emailPlaceholder" />
-            <input type="text" name="service" placeholder="서비스 종류" data-i18n-attr="placeholder:contact.form.servicePlaceholder" />
-            <textarea name="message" rows="7" placeholder="문의내용" data-i18n-attr="placeholder:contact.form.messagePlaceholder"></textarea>
-            <button type="button" data-i18n="contact.form.submit">문의 보내기</button>
+<!--          <form class="contact-form">-->
+<!--            <input type="text" name="name" placeholder="이름" data-i18n-attr="placeholder:contact.form.namePlaceholder" />-->
+<!--            <input type="email" name="email" placeholder="이메일" data-i18n-attr="placeholder:contact.form.emailPlaceholder" />-->
+<!--            <input type="text" name="service" placeholder="서비스 종류" data-i18n-attr="placeholder:contact.form.servicePlaceholder" />-->
+<!--            <textarea name="message" rows="7" placeholder="문의내용" data-i18n-attr="placeholder:contact.form.messagePlaceholder"></textarea>-->
+<!--            <button type="button" data-i18n="contact.form.submit">문의 보내기</button>-->
+<!--          </form>-->
+          <form id="contactForm" class="contact-form">
+            <input type="text" name="name" placeholder="이름" required />
+            <input type="email" name="email" placeholder="이메일" required />
+            <input type="text" name="type" placeholder="서비스 종류" required />
+            <textarea name="inquiry" rows="7" placeholder="문의내용" required></textarea>
+            <button type="submit" data-i18n="contact.form.submit">문의 보내기</button>
           </form>
-          <img class="map" src="assets/kr-contact-map.png" alt="회사 위치 지도" data-i18n-attr="alt:contact.mapAlt" />
+          <!-- 지도 -->
+          <div class="map">
+            <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1582.7776291650298!2d127.12354253442918!3d37.49482018194761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca58877f26529%3A0x5977653064e3046d!2z7ISc7Jq47Yq567OE7IucIOyGoe2MjOq1rCDshqHsnbTroZwgMTM1!5e0!3m2!1sko!2skr!4v1778138651713!5m2!1sko!2skr"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    loading="lazy">
+            </iframe>
+          </div>
         </div>
         <footer class="footer-info" data-i18n-html="contact.footer">
           Business Registration Number&nbsp;&nbsp;|&nbsp;&nbsp;706-86-03507<br />
@@ -351,6 +367,17 @@
         </footer>
       </section>
     </main>
+    <div id="successModal" class="modal-overlay">
+      <div class="modal-box">
+        <button class="modal-close" type="button" id="modalClose">&times;</button>
+        <h3>문의 접수 완료</h3>
+        <p>
+          문의해 주셔서 감사합니다.<br>
+          담당자가 내용을 확인한 후 최대한 빨리 답변 드리겠습니다.
+        </p>
+        <button class="modal-ok" type="button" id="modalOk">확인</button>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

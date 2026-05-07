@@ -68,6 +68,70 @@ async function initLanguage() {
   });
 }
 
-initLanguage().catch((error) => {
-  console.error("Failed to load translations.", error);
-});
+// initLanguage().catch((error) => {
+//   console.error("Failed to load translations.", error);
+// });
+
+// 문의 API 전송 + 팝업
+
+
+const contactForm = document.getElementById("contactForm");
+const successModal = document.getElementById("successModal");
+const modalClose = document.getElementById("modalClose");
+const modalOk = document.getElementById("modalOk");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const data = {
+      name: contactForm.name.value,
+      email: contactForm.email.value,
+      type: contactForm.type.value,
+      inquiry: contactForm.inquiry.value,
+    };
+
+    try {
+      const response = await fetch("https://blocksquarelabs.com/api/inquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.status === 200) {
+        successModal.classList.add("show");
+        contactForm.reset();
+      } else {
+        alert("문의 전송에 실패했습니다.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("네트워크 오류");
+    }
+  });
+}
+
+// 팝업 닫기
+function closeModal() {
+  if (successModal) {
+    successModal.classList.remove("show");
+  }
+}
+
+if (modalClose) {
+  modalClose.addEventListener("click", closeModal);
+}
+
+if (modalOk) {
+  modalOk.addEventListener("click", closeModal);
+}
+
+if (successModal) {
+  successModal.addEventListener("click", function (e) {
+    if (e.target === successModal) {
+      closeModal();
+    }
+  });
+}
