@@ -16,6 +16,9 @@ public class SecurityConfig {
                         // index.html
                         .requestMatchers("/", "/index.html").permitAll()
 
+                        // API
+                        .requestMatchers("/api/**").permitAll()
+
                         // 정적 리소스
                         .requestMatchers(
                                 "/assets/**",
