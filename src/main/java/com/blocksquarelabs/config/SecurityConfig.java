@@ -35,7 +35,8 @@ public class SecurityConfig {
                                 "/*.svg",
                                 "/*.ico",
                                 "/*.css",
-                                "/*.js"
+                                "/*.js",
+                                "/*.json"
                         ).permitAll()
 
                         // 나머지는 인증 필요

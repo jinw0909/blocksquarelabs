@@ -21,14 +21,27 @@
           <a href="#projects">Projects</a>
           <a href="#contact">Contact Us</a>
         </nav>
-        <label class="lang-select" aria-label="언어 선택" data-i18n-attr="aria-label:lang.ariaLabel">
-          <span class="language-icon" aria-hidden="true"><img src="assets/language.png" alt="language" aria-hidden="true"></span>
-<!--          <img src="assets/language.png" alt="language" aria-hidden="true">-->
-          <select id="languageSelect">
-            <option value="ko">KR</option>
-            <option value="en">EN</option>
-          </select>
-        </label>
+<!--        <label class="lang-select" aria-label="언어 선택" data-i18n-attr="aria-label:lang.ariaLabel">-->
+<!--          <span class="language-icon" aria-hidden="true"><img src="assets/language.png" alt="language" aria-hidden="true"></span>-->
+<!--&lt;!&ndash;          <img src="assets/language.png" alt="language" aria-hidden="true">&ndash;&gt;-->
+<!--          <select id="languageSelect">-->
+<!--            <option value="ko">KR</option>-->
+<!--            <option value="en">EN</option>-->
+<!--          </select>-->
+<!--        </label>-->
+          <div class="lang-menu" aria-label="언어 선택" data-i18n-attr="aria-label:lang.ariaLabel">
+              <button class="lang-trigger" type="button" id="languageTrigger" aria-label="언어 선택">
+                <span class="language-icon" aria-hidden="true">
+                  <img src="assets/language.png" alt="language" aria-hidden="true">
+                </span>
+                <span id="currentLanguageText">KR</span>
+              </button>
+
+              <div class="lang-modal" id="languageModal" aria-hidden="true">
+                  <button type="button" class="lang-option active" data-language="ko">KR</button>
+                  <button type="button" class="lang-option" data-language="en">EN</button>
+              </div>
+          </div>
       </div>
     </header>
 
@@ -36,14 +49,14 @@
       <section class="hero">
         <div class="hero-art" aria-hidden="true"></div>
         <div class="hero-content">
-          <h1 data-i18n-html="hero.title">We build the tools,</h1>
-          <h1 class="headline-second">You build the future.</h1>
-          <div class="hero-tags" data-i18n-html="hero.tags">
-            <h4 class="hero-tag">IT 개발</h4>
+          <h1 data-i18n-html="hero.first">We build the tools,</h1>
+          <h1 data-i18n-html="hero.second" class="headline-second">You build the future.</h1>
+          <div class="hero-tags">
+            <h4 data-i18n-html="hero.tags.first" class="hero-tag">IT 개발</h4>
             <img class="light-img" src="assets/flare.png" alt="light"/>
-            <h4 class="hero-tag">SaaS 플랫폼 엔지니어링</h4>
+            <h4 data-i18n-html="hero.tags.second" class="hero-tag">SaaS 플랫폼 엔지니어링</h4>
             <img class="light-img" src="assets/flare.png" alt="light"/>
-            <h4 class="hero-tag">Web3 &amp; 블록체인 솔루션</h4>
+            <h4 data-i18n-html="hero.tags.third" class="hero-tag">Web3 &amp; 블록체인 솔루션</h4>
           </div>
           <div class="hero-actions">
             <a class="btn primary" href="#contact" data-i18n="hero.primaryCta">프로젝트 의뢰</a>
@@ -55,9 +68,9 @@
       <section class="about section-wrap" id="about">
         <div class="intro-grid">
           <h2 data-i18n="about.title">ABOUT US</h2>
-          <div class="intro-copy star-copy" data-i18n="about.copy">
+          <div class="intro-copy star-copy">
             <img class="light-img" src="assets/flare.png" alt="light">
-            <p>
+            <p data-i18n="about.copy">
               우리는 디지털 제품의 기획부터 개발, 배포까지 전 과정을 수행하는 풀사이클 엔지니어링 팀입니다. 고객과 긴밀히 협업하여 아이디어를 실제 운영 가능한 시스템으로 구현하며, 빠른 실행력과 명확한 커뮤니케이션, 그리고 장기적인 확장성을 핵심 가치로 삼고 있습니다.
             </p>
           </div>
@@ -174,9 +187,9 @@
           </div>
 
           <!-- 3 -->
-          <div class="services-copy intro-copy star-copy" data-i18n="services.copy">
+          <div class="services-copy intro-copy star-copy">
             <img class="light-img" src="assets/flare.png" alt="light" />
-            <p>
+            <p data-i18n="services.copy">
               블록스퀘어랩스는 AI, 데이터, 웹, 모바일 전 영역에 걸쳐 실제 운영 환경에
               최적화된 End-to-End 엔지니어링 서비스를 제공합니다.
             </p>
@@ -295,9 +308,9 @@
             <h2 data-i18n="services.title">SERVICES</h2>
           </div>
 
-          <div class="services-copy intro-copy star-copy" data-i18n="services.copy">
+          <div class="services-copy intro-copy star-copy" >
             <img class="light-img" src="assets/flare.png" alt="light" />
-            <p>
+            <p data-i18n="services.copy">
               블록스퀘어랩스는 AI, 데이터, 웹, 모바일 전 영역에 걸쳐 실제 운영 환경에
               최적화된 End-to-End 엔지니어링 서비스를 제공합니다.
             </p>
@@ -422,17 +435,27 @@
             </ol>
           </div>
           <div class="project-showcase">
-            <button type="button" aria-label="이전 프로젝트">‹</button>
+            <button class="project-slider-btn project-prev" type="button" aria-label="이전 프로젝트">‹</button>
 <!--            <img class="dashboard-shot" src="assets/kr-project-dashboard.png" alt="Dashboard Admin project" data-i18n-attr="alt:projects.dashboardAlt" />-->
             <div class="dashboard-shot-container">
               <img class="dashboard-shot" src="assets/led-frame.png" alt="showcase slide LED" data-i18n-attr="alt:projects.dashboardAlt" />
               <img class="dashboard-screen" src="assets/dark-screen.png" alt="showcase slide screen" data-i18n-attr="alt:projects.dashboardAlt" />
-              <div class="dashboard-content"></div>
+              <div class="dashboard-content">
+                  <div class="dashboard-slide">
+                      <img src="assets/project-01.png" alt="Project 01" />
+                  </div>
+                  <div class="dashboard-slide active">
+                      <img src="assets/project-02.png" alt="Project 02" />
+                  </div>
+                  <div class="dashboard-slide">
+                      <img src="assets/project-03.png" alt="Project 03" />
+                  </div>
+              </div>
               <div class="dashboard-overlay"></div>
               <div class="dashboard-overlay-black"></div>
 
             </div>
-            <button type="button" aria-label="다음 프로젝트">›</button>
+            <button class="project-slider-btn project-next" type="button" aria-label="다음 프로젝트">›</button>
           </div>
           <div class="mobile-shot-container">
             <img class="mobile-shot" src="assets/mobile-shot.png" alt="Mobile and trading project screens" data-i18n-attr="alt:projects.mobileAlt" />
@@ -453,10 +476,30 @@
 <!--            <button type="button" data-i18n="contact.form.submit">문의 보내기</button>-->
 <!--          </form>-->
           <form id="contactForm" class="contact-form">
-            <input type="text" name="name" placeholder="이름" required />
-            <input type="email" name="email" placeholder="이메일" required />
-            <input type="text" name="type" placeholder="서비스 종류" required />
-            <textarea name="inquiry" rows="7" placeholder="문의내용" required></textarea>
+            <input
+                type="text"
+                name="name"
+                placeholder="이름"
+                data-i18n-attr="placeholder:contact.form.namePlaceholder"
+                required />
+            <input
+                type="email"
+                name="email"
+                placeholder="이메일"
+                data-i18n-attr="placeholder:contact.form.emailPlaceholder"
+                required />
+            <input
+                type="text"
+                name="type"
+                placeholder="서비스 종류"
+                data-i18n-attr="placeholder:contact.form.servicePlaceholder"
+                required />
+            <textarea
+                name="inquiry"
+                rows="7"
+                placeholder="문의내용"
+                data-i18n-attr="placeholder:contact.form.messagePlaceholder"
+                required></textarea>
             <button type="submit" data-i18n="contact.form.submit">문의 보내기</button>
           </form>
           <!-- 지도 -->
@@ -472,7 +515,7 @@
         </div>
         <footer class="footer-info" data-i18n-html="contact.footer">
           Business Registration Number&nbsp;&nbsp;|&nbsp;&nbsp;706-86-03507<br />
-          Registered Address&nbsp;&nbsp;|&nbsp;&nbsp;4F, 135 Songi-ro, Songpa-gu, Seoul, Korea<br />
+          Registered Address&nbsp;&nbsp;|&nbsp;&nbsp;5F, 135 Songi-ro, Songpa-gu, Seoul, Korea<br />
           CEO / Representative&nbsp;&nbsp;|&nbsp;&nbsp;Theo Won
         </footer>
       </section>

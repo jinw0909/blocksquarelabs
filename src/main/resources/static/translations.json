@@ -11,7 +11,11 @@
     },
     "hero": {
       "title": "We build the tools,<br />You build the future.",
-      "tags": "IT 개발 <span></span> SaaS 플랫폼 엔지니어링 <span></span> Web 3 &amp; 블록체인 솔루션",
+      "tags": {
+        "first" : "IT 개발",
+        "second":  "SaaS 플랫폼 엔지니어링",
+        "third" :  "Web3 &amp; 블록체인 솔루션"
+      },
       "primaryCta": "프로젝트 의뢰",
       "secondaryCta": "더 알아보기"
     },
@@ -166,7 +170,11 @@
     },
     "hero": {
       "title": "We build the tools,<br />You build the future.",
-      "tags": "IT Development <span></span> SaaS Platform Engineering <span></span> Web3 &amp; Blockchain Solutions",
+      "tags": {
+        "first" : "IT Development",
+        "second":  "SaaS Platform Engineering",
+        "third" :  "Web3 &amp; Blockchain Solutions"
+      },
       "primaryCta": "Start a Project",
       "secondaryCta": "Learn More"
     },
