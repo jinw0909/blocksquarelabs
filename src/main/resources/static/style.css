@@ -93,6 +93,7 @@ img {
   font-size: 17px;
   font-weight: 900;
   line-height: 0.92;
+  width: 170px;
 }
 
 .brand-symbol {
@@ -1559,5 +1560,13 @@ section {
 
   .lang-trigger {
     padding: 6px 8px;
+    gap: 4px;
+  }
+  #currentLanguageText {
+    font-size: .8rem;
+  }
+  .lang-trigger .language-icon img {
+    width: 12px;
+    height: 12px;
   }
 }
