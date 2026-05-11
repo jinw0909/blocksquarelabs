@@ -1,8 +1,14 @@
 package com.blocksquarelabs.config;
 
+import com.blocksquarelabs.repository.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -11,7 +17,10 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.List;
 
 @Configuration
+@RequiredArgsConstructor
 public class SecurityConfig {
+
+    private final MemberRepository memberRepository;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -36,14 +45,63 @@ public class SecurityConfig {
                                 "/*.ico",
                                 "/*.css",
                                 "/*.js",
-                                "/*.json"
+                                "/*.json",
+                                "/*.ico"
                         ).permitAll()
+
+                        // 관리자 페이지
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
 
                         // 나머지는 인증 필요
                         .anyRequest().authenticated()
+                )
+                .formLogin(form -> form
+//                        .loginPage("/login").permitAll()
+                                .defaultSuccessUrl("/admin", true)
+                                .permitAll()
+                )
+
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
                 );
 
         return http.build();
+    }
+
+
+    @Bean
+    public UserDetailsService userDetailsService() {
+        return username -> {
+            var member = memberRepository.findByUsername(username)
+                    .orElseThrow(() -> new RuntimeException("존재하지 않는 관리자입니다."));
+
+            return User.builder()
+                    .username(member.getUsername())
+                    .password(member.getPassword())
+                    .roles(normalizeRole(member.getRole()))
+                    .build();
+        };
+    }
+
+    private String normalizeRole(String role) {
+        if (role == null || role.isBlank()) {
+            return "ADMIN";
+        }
+
+        // DB에 ROLE_ADMIN으로 저장되어 있어도 ADMIN으로 변환
+        if (role.startsWith("ROLE_")) {
+            return role.substring(5);
+        }
+
+        return role;
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     @Bean

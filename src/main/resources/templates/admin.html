@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+
+<h1>Admin Page</h1>
+
+<p>
+    로그인 유저:
+    <span th:text="${user.username}">username</span>
+</p>
+
+<p>
+    권한:
+    <span th:text="${user.authorities}">ROLE</span>
+</p>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
+
+</body>
+</html>

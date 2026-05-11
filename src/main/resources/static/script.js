@@ -246,7 +246,7 @@ if (contactForm) {
     };
 
     try {
-      const response = await fetch("https://blocksquarelabs.com/api/inquiry", {
+      const response = await fetch("/api/inquiry", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

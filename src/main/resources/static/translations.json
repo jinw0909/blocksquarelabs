@@ -1,7 +1,8 @@
 {
   "ko": {
     "meta": {
-      "title": "블록스퀘어랩스 회사소개"
+      "title": "블록스퀘어랩스 | AI·웹·앱·블록체인 개발 파트너",
+      "description": "블록스퀘어랩스는 AI 개발, 데이터 분석, 웹·모바일 앱 개발, Web3 및 블록체인 솔루션을 제공하는 풀사이클 엔지니어링 팀입니다."
     },
     "brand": {
       "ariaLabel": "Blocksquare Labs home"
@@ -160,7 +161,8 @@
   },
   "en": {
     "meta": {
-      "title": "Blocksquare Labs Company Profile"
+      "title": "Blocksquare Labs | AI, Web3, Web & Mobile App Development",
+      "description": "Blocksquare Labs is a full-cycle engineering team providing AI development, data analytics, web and mobile app development, and Web3 blockchain solutions."
     },
     "brand": {
       "ariaLabel": "Blocksquare Labs home"
