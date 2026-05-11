@@ -814,6 +814,8 @@ p {
 /* 각각의 슬라이드 */
 .dashboard-slide {
   position: absolute;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   inset: 0;
   opacity: 0;
   visibility: hidden;
@@ -1338,7 +1340,7 @@ p {
     inset: 12px;
     width: calc(100% - 24px);
     height: calc(100% - 24px);
-    border-radius: 8px;
+    border-radius: 4px;
   }
 
   .mobile-shot {
