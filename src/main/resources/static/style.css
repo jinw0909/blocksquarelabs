@@ -145,8 +145,15 @@ img {
   font-size: 14px;
   margin-left: 4rem;
 }
+.nav a {
+  transition: color 0.5s ease-in-out;
+}
 
-.nav a:first-child {
+.nav a:hover {
+  color: #fff;
+}
+
+.nav a.active {
   color: #fff;
   font-weight: 800;
 }
@@ -189,7 +196,7 @@ img {
 
 .hero {
   position: relative;
-  height: calc(100dvh - 5rem);
+  height: calc(100svh - 5rem);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -250,7 +257,7 @@ img {
   margin: 54px 0 0;
   font-size: 24px;
   font-weight: 900;
-  padding: 0 2rem;
+  padding: 0 4rem;
 }
 
 
@@ -1191,7 +1198,7 @@ html[lang="ja"] .contact h2 {
   }
 
   .hero {
-    height: calc(100dvh - 6rem);
+    height: calc(100svh - 6rem);
   }
 
   .hero-art {
@@ -1377,12 +1384,14 @@ html[lang="ja"] .contact h2 {
     padding: 110px 0;
   }
   #services {
-    padding-bottom: 5rem;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
   }
 
   #projects {
     margin-top: 0;
     padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   .project-top {
@@ -1455,7 +1464,7 @@ html[lang="ja"] .contact h2 {
   }
 
   #contact {
-    padding-top: 10rem;
+    padding-top: 6rem;
   }
 
   #contact h2 {
@@ -1560,6 +1569,21 @@ html[lang="ja"] .contact h2 {
 
   .contact h2 {
     color: white;
+    position: relative;
+  }
+  .contact h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 5vw;
+    pointer-events: none;
+    background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0) 0%,
+            #000 100%
+    );
   }
 }
 
@@ -1611,6 +1635,11 @@ section {
 
 #currentLanguageText {
   opacity: 0.8;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#currentLanguageText:hover {
+  opacity: 1;
 }
 
 .lang-modal {

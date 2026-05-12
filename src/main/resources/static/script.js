@@ -231,6 +231,82 @@ async function initLanguage() {
 initLanguage().catch((error) => {
   console.error("Failed to load translations.", error);
 });
+/* ==============================
+   Active navigation state
+============================== */
+
+const navLinks = document.querySelectorAll(".nav a");
+const brandLogo = document.querySelector(".brand");
+
+let isNavScrolling = false;
+let navScrollTimer = null;
+
+function setActiveNav(hash) {
+  navLinks.forEach((link) => {
+    link.classList.toggle("active", link.getAttribute("href") === hash);
+  });
+}
+
+function updateActiveNavByScroll() {
+  // 네비 클릭으로 이동 중일 때는 스크롤 active 보정 중지
+  if (isNavScrolling) return;
+
+  const headerOffset = 140;
+  const scrollPosition = window.scrollY + headerOffset;
+
+  let currentHash = "#top";
+
+  navLinks.forEach((link) => {
+    const hash = link.getAttribute("href");
+    const target = hash ? document.querySelector(hash) : null;
+
+    if (target && target.offsetTop <= scrollPosition) {
+      currentHash = hash;
+    }
+  });
+
+  setActiveNav(currentHash);
+}
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    const hash = link.getAttribute("href");
+    const target = hash ? document.querySelector(hash) : null;
+
+    if (!hash || !target) return;
+
+    // 클릭한 메뉴 즉시 active
+    setActiveNav(hash);
+
+    // smooth scroll 이동 중에는 다른 메뉴 active 변경 방지
+    isNavScrolling = true;
+
+    clearTimeout(navScrollTimer);
+
+    navScrollTimer = setTimeout(() => {
+      isNavScrolling = false;
+      updateActiveNavByScroll();
+    }, 1500);
+  });
+});
+
+brandLogo?.addEventListener("click", () => {
+  setActiveNav("#top");
+
+  isNavScrolling = true;
+  clearTimeout(navScrollTimer);
+
+  navScrollTimer = setTimeout(() => {
+    isNavScrolling = false;
+    updateActiveNavByScroll();
+  }, 800);
+});
+
+window.addEventListener("scroll", updateActiveNavByScroll);
+window.addEventListener("DOMContentLoaded", updateActiveNavByScroll);
+
+updateActiveNavByScroll();
+
 
 /* ==============================
    Contact form / success modal
