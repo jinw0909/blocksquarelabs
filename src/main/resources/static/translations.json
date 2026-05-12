@@ -116,19 +116,43 @@
       "items": [
         {
           "title": "AI 개발",
-          "copy": "실제 비즈니스 환경에 적용 가능한 AI 시스템을 설계하고 구축합니다.<br />· LLM 기반 챗봇 및 자연어 처리(NLP) 서비스<br />· 머신러닝 모델 개발 및 MLOps 파이프라인 구축<br />· 컴퓨터 비전 솔루션<br />· RAG 기반 지식 검색 시스템<br />· AI 기반 데이터 분석 및 대시보드 시각화"
+          "intro": "실제 비즈니스 환경에 적용 가능한 AI 시스템을 설계하고 구축합니다.",
+          "bullets": [
+            "LLM 기반 챗봇 및 자연어 처리(NLP) 서비스",
+            "머신러닝 모델 개발 및 MLOps 파이프라인 구축",
+            "컴퓨터 비전 솔루션",
+            "RAG 기반 지식 검색 시스템",
+            "AI 기반 데이터 분석 및 대시보드 시각화"
+          ]
         },
         {
           "title": "데이터 분석 및 엔지니어링",
-          "copy": "· 데이터 파이프라인 설계 및 자동화<br />· 데이터 처리, 변환 및 저장 구조 설계<br />· 외부 API 및 다양한 데이터 소스 연동<br />· 대규모 환경에서도 성능과 안정성을 유지하며, 데이터 기반 의사결정을 지원합니다."
+          "intro": "",
+          "bullets": [
+            "데이터 파이프라인 설계 및 자동화",
+            "데이터 처리, 변환 및 저장 구조 설계",
+            "외부 API 및 다양한 데이터 소스 연동",
+            "대규모 환경에서도 성능과 안정성을 유지하며, 데이터 기반 의사결정을 지원합니다."
+          ]
         },
         {
           "title": "웹 개발",
-          "copy": "다양한 산업군에 적용 가능한 확장성 높은 웹 시스템을 구축합니다.<br />· 프론트엔드: React, Vue, Angular<br />· 백엔드: Java(Spring Boot), Node.js, Python(Django / FastAPI), PHP<br />· 데이터베이스: MySQL, PostgreSQL, MongoDB, Oracle<br />· 클라우드 및 인프라: AWS, Azure, GCP, 네이버 클라우드"
+          "intro": "다양한 산업군에 적용 가능한 확장성 높은 웹 시스템을 구축합니다.",
+          "bullets": [
+            "프론트엔드: React, Vue, Angular",
+            "백엔드: Java(Spring Boot), Node.js, Python(Django / FastAPI), PHP",
+            "데이터베이스: MySQL, PostgreSQL, MongoDB, Oracle",
+            "클라우드 및 인프라: AWS, Azure, GCP, 네이버 클라우드"
+          ]
         },
         {
           "title": "모바일 앱 개발",
-          "copy": "· Swift, Kotlin 기반 네이티브 앱 개발<br />· 개발부터 배포, 운영까지 전 과정 지원<br />· App Store 및 Google Play 등록 및 최적화"
+          "intro": "",
+          "bullets": [
+            "Swift, Kotlin 기반 네이티브 앱 개발",
+            "개발부터 배포, 운영까지 전 과정 지원",
+            "App Store 및 Google Play 등록 및 최적화"
+          ]
         }
       ]
     },
@@ -165,7 +189,8 @@
       },
       "error" : {
         "insufficient": "모든 항목을 입력해주세요"
-      }
+      },
+      "ok" : "OK"
     }
   },
   "en": {
@@ -191,139 +216,163 @@
     },
     "about": {
       "title": "ABOUT US",
-      "copy": "We are a full-cycle engineering team that handles every stage of digital product delivery, from planning and development to deployment. We work closely with clients to turn ideas into production-ready systems, with speed, clear communication, and long-term scalability as core values.",
+      "copy": "We are a full-cycle engineering team delivering end-to-end digital products.\nWe work closely with clients to turn ideas into production-ready systems, with a focus on speed, clarity, and long-term scalability.",
       "strengthTitle": "Core Strength",
       "strengths": [
         {
           "title": "End-to-End Ownership",
-          "copy": "We handle planning, design, development, QA, deployment, and operations internally to reduce communication cost and development time."
+          "copy": "We handle the entire lifecycle in-house, reducing communication overhead and delivery time."
         },
         {
           "title": "Data-Driven Execution",
-          "copy": "We provide real-time analysis and intuitive visualization through custom analytics structures and dashboards."
+          "copy": "We build custom analytics pipelines and dashboards, enabling real-time insights."
         },
         {
-          "title": "Full-Stack Capability",
-          "copy": "Our engineering capability covers frontend, backend, mobile, database, and infrastructure."
+          "title": "Full-Stack Engineering Capability",
+          "copy": "From frontend to backend, mobile, database, and infrastructure — we cover the entire stack."
         },
         {
-          "title": "Fast App Launch",
-          "copy": "We shorten launch timelines based on experience with iOS and Android app review processes."
+          "title": "Fast App Deployment",
+          "copy": "Experience with iOS and Android app review processes, accelerating time-to-market."
         },
         {
           "title": "API Integration & Automation",
-          "copy": "We build systems for external API integration, data collection, processing, and automation."
+          "copy": "We design and implement robust API integrations, including automated data pipelines and system workflows."
         },
         {
           "title": "Global Project Experience",
-          "copy": "We respond flexibly to diverse requirements and communication environments through overseas collaboration experience."
+          "copy": "Experienced in working with international clients, adapting to different markets and requirements."
         }
       ]
     },
     "team": {
       "title": "Team",
-      "copy": "Our team consists of specialists across development, design, planning, and operations, collaborating organically throughout the entire process to deliver stable and polished results.",
+      "copy": "Our team is composed of experienced specialists across development, design, planning, and operations — working together to deliver complete, production-ready systems.",
       "people": [
         {
           "name": "Theo Won",
           "role": "CEO",
-          "copy": "Full-stack engineer with 10+ years of experience<br />Key projects:<br />· Seoul Metro unmanned ticketing system<br />· AI-based cryptocurrency trend prediction system"
+          "copy": "Full-stack engineer with 11 years of experience.\u2028Led development of large-scale systems including the Seoul Metro automated ticketing system and an AI-powered cryptocurrency trend prediction platform."
         },
         {
           "name": "Alex Hong",
           "role": "Head of Development",
-          "copy": "Full-stack engineer with 15+ years of experience<br />Large public-sector projects:<br />· Gyeonggi-do second disaster basic income payment system<br />· COVID-19 epidemiological investigation system"
+          "copy": "Full-stack engineer with 15 years of experience.\u2028Led development of major public-sector systems, including the Gyeonggi-do disaster relief payment platform and the COVID-19 epidemiological investigation system."
         }
       ],
       "roles": [
         {
           "title": "Engineering",
-          "copy": "We have hands-on experience building scalable and stable systems with Java, JavaScript, Python, PHP, Swift, Spring, and more."
+          "copy": "A team of full-stack developers covering backend, frontend, and AI integration. Skilled in Java, JavaScript, Python, PHP, Swift, and Spring, with hands-on experience building scalable and reliable systems."
         },
         {
           "title": "Design",
-          "copy": "We handle product UI/UX design and visual content production using Figma, Adobe XD, Photoshop, CapCut, and After Effects."
+          "copy": "UI/UX designers focused on intuitive interfaces and user-centered design.\u2028Experienced in Figma, Adobe XD, Photoshop, CapCut, and After Effects for both product and visual content."
         },
         {
           "title": "Publishing",
-          "copy": "We specialize in HTML/CSS markup and publishing with web standards and accessibility in mind."
+          "copy": "Frontend publishers specializing in HTML/CSS markup and web accessibility standards.\u2028Experienced in compliance, documentation, and accessibility certification."
         },
         {
           "title": "Business Development",
-          "copy": "We support stable business expansion through B2B sales and partnership development experience."
+          "copy": "Responsible for client acquisition, proposal development, and contract execution.\u2028Backed by solid experience in B2B sales and partnership development."
         },
         {
           "title": "Planning",
-          "copy": "We bring planning expertise in requirement analysis, proposal writing, and service design."
+          "copy": "Strategists and product planners specializing in requirement analysis, proposal writing, and service design.\u2028Experienced in project management, business planning, and RFP analysis."
         }
       ]
     },
     "difference": {
-      "title": "What makes us<br />different.",
+      "title": "What <span>makes us</span><br />different.",
       "items": [
         {
-          "title": "Fast Development & Launch",
-          "copy": "We shorten launch timelines through fast app review response and maximize market entry speed."
+          "title": "Fast to Market",
+          "copy": "We accelerate time-to-market, ensuring rapid app approval and faster market entry."
         },
         {
           "title": "One-Stop Development Partner",
-          "copy": "We manage the entire process as one partner and minimize unnecessary communication costs."
+          "copy": "As a one-stop development partner, we manage the entire cycle, reducing unnecessary communication overhead."
         },
         {
           "title": "Data-Based Insight",
-          "copy": "We process large-scale blockchain data in real time and visualize it through advanced chart engines."
+          "copy": "We process large-scale blockchain data in real time and visualize it through an advanced chart engine."
         },
         {
           "title": "Automation Scalability",
-          "copy": "We automate repetitive work through API integrations and exchange bots to maximize operational efficiency."
+          "copy": "Through API integration and exchange bots, we automate repetitive tasks and maximize operational efficiency."
         }
       ]
     },
     "services": {
       "title": "SERVICES",
-      "copy": "Blocksquare Labs provides End-to-End engineering services optimized for real operating environments across AI, data, web, and mobile.",
+      "copy": "We provide end-to-end engineering services across AI, data, web, and mobile — built for real-world production.",
       "items": [
         {
           "title": "AI Development",
-          "copy": "We design and build AI systems applicable to real business environments.<br />· LLM-based chatbots and NLP services<br />· Machine learning model development and MLOps pipelines<br />· Computer vision solutions<br />· RAG-based knowledge search systems<br />· AI-based data analysis and dashboard visualization"
+          "intro": "We design and build AI-powered systems tailored to real business use cases.",
+          "bullets": [
+            "LLM-based chatbots and NLP services",
+            "Machine learning model development and MLOps pipelines",
+            "Computer vision solutions",
+            "RAG-based knowledge retrieval systems",
+            "AI-driven analytics and dashboard visualization"
+          ]
         },
         {
           "title": "Data Analysis & Engineering",
-          "copy": "· Data pipeline design and automation<br />· Data processing, transformation, and storage architecture<br />· External API and data source integrations<br />· We support data-driven decisions while maintaining performance and stability at scale."
+          "intro": "",
+          "bullets": [
+            "Data pipeline design and automation",
+            "Data processing, transformation, and storage architecture",
+            "Integration with external APIs and multiple data sources",
+            "Built for performance, clarity, and decision-making at scale."
+          ]
         },
         {
           "title": "Web Development",
-          "copy": "We build scalable web systems for a wide range of industries.<br />· Frontend: React, Vue, Angular<br />· Backend: Java(Spring Boot), Node.js, Python(Django / FastAPI), PHP<br />· Database: MySQL, PostgreSQL, MongoDB, Oracle<br />· Cloud & infrastructure: AWS, Azure, GCP, Naver Cloud"
+          "intro": "We build scalable, production-ready web systems across industries.",
+          "bullets": [
+            "Frontend: React, Vue, Angular",
+            "Backend: Java(Spring Boot), Node.js, Python(Django / FastAPI), PHP",
+            "Database: MySQL, PostgreSQL, MongoDB, Oracle",
+            "Cloud & infrastructure: AWS, Azure, GCP, Naver Cloud"
+          ]
         },
         {
           "title": "Mobile App Development",
-          "copy": "· Native app development with Swift and Kotlin<br />· Full process support from development to deployment and operations<br />· App Store and Google Play registration and optimization"
+          "intro": "",
+          "bullets": [
+            "Native app development using Swift and Kotlin",
+            "End-to-end app lifecycle: development, deployment, and maintenance",
+            "App Store and Google Play submission and optimization"
+          ]
         }
       ]
     },
     "projects": {
       "title": "PROJECTS",
-      "copy": "Blocksquare Labs has accumulated deep technical capability and experience through diverse projects. From AI-based chart engines and trading bots to exchange systems and global platforms, we continue to expand our capabilities. Every project follows a One-Stop Build process covering planning, design, development, QA, and maintenance.",
+      "copy": "Blocksquare Labs has built deep expertise through years of diverse projects. From AI-powered chart engines / bots to exchange systems and global platforms, we have continually expanded our capabilities. Every project is delivered through a One-Stop Build process — covering planning, design, development, QA, and ongoing maintenance.",
       "timeline": [
-        "Developed web and app-based AI cryptocurrency arbitrage trading bots",
-        "Developed AI-based cryptocurrency charts that analyze on-chain data with deep learning",
-        "Developed advanced chart solutions that refine price patterns and indicators for prediction<br />Developed cryptocurrency alert apps based on market flow analysis",
-        "Built platforms integrated with exchange partner pages",
-        "End-to-End development of a global prediction platform including a cryptocurrency trading simulator"
+        "Web & App based AI Crypto Arbitrage Trading Bot",
+        "AI-Powered Crypto Chart that applies deep learning to on-chain data",
+        "Advanced Chart Solution offering price predictions by refining price patterns and indicators<br />Crypto Alert App that tracks and delivers trend analysis alerts",
+        "Platform Linked with exchange partner pages",
+        "Global Crypto prediction platform developed end-to-end, featuring a crypto trading simulator"
       ],
       "dashboardAlt": "Dashboard Admin project",
       "mobileAlt": "Mobile and trading project screens"
     },
     "contact": {
       "title": "Have a project in mind?",
-      "copy": "Leave your requirements and we will review them quickly and contact you.",
+      "copy": "Tell us about your requirements — we’ll get back to you shortly.",
       "mapAlt": "Company location map",
       "form": {
         "namePlaceholder": "Name",
         "emailPlaceholder": "Email",
         "servicePlaceholder": "Service Type",
         "messagePlaceholder": "Message",
-        "submit": "Send Inquiry"
+        "submit": "Submit Request"
       },
       "footer": "Business Registration Number&nbsp;&nbsp;|&nbsp;&nbsp;706-86-03507<br />Registered Address&nbsp;&nbsp;|&nbsp;&nbsp;5F, 135 Songi-ro, Songpa-gu, Seoul, Korea<br />CEO / Representative&nbsp;&nbsp;|&nbsp;&nbsp;Theo Won"
     },
@@ -334,7 +383,7 @@
       },
       "error" : {
         "insufficient": "Please fill in all fields"
-      }
+      },"ok" : "OK"
     }
   },
   "jp": {
@@ -454,19 +503,43 @@
       "items": [
         {
           "title": "AI開発",
-          "copy": "実際のビジネス環境に適用可能なAIシステムを設計・構築します。<br />· LLMベースのチャットボットおよび自然言語処理（NLP）サービス<br />· 機械学習モデル開発およびMLOpsパイプライン構築<br />· コンピュータビジョンソリューション（画像認識、OCR、不良検知 など）<br />· RAGベースのナレッジ検索システム<br />· AIベースのデータ分析およびダッシュボード可視化"
+          "intro": "実際のビジネス環境に適用可能なAIシステムを設計・構築します。",
+          "bullets": [
+            "LLMベースのチャットボットおよび自然言語処理（NLP）サービス",
+            "機械学習モデル開発およびMLOpsパイプライン構築",
+            "コンピュータビジョンソリューション（画像認識、OCR、不良検知 など）",
+            "RAGベースのナレッジ検索システム",
+            "AIベースのデータ分析およびダッシュボード可視化"
+          ]
         },
         {
           "title": "データ分析・エンジニアリング",
-          "copy": "· データパイプライン設計および自動化<br />· データ処理・変換・保存構造の設計<br />· 外部APIおよび多様なデータソースとの連携<br />· 大規模環境においてもパフォーマンスと可読性を維持し、データドリブンな意思決定を支援します。"
+          "intro": "",
+          "bullets": [
+            "データパイプライン設計および自動化",
+            "データ処理・変換・保存構造の設計",
+            "外部APIおよび多様なデータソースとの連携",
+            "大規模環境においてもパフォーマンスと可読性を維持し、データドリブンな意思決定を支援します。"
+          ]
         },
         {
           "title": "Web開発",
-          "copy": "さまざまな業界に対応可能な、拡張性の高いWebシステムを構築します。<br />· フロントエンド：React、Vue、Angular<br />· Backend: バックエンド：Java（Spring Boot）、Node.js、Python（Django / FastAPI）、PHP<br />· データベース：MySQL、PostgreSQL、MongoDB、Oracle<br />· クラウド・インフラ：AWS、Azure、GCP、Naver Cloud"
+          "intro": "さまざまな業界に対応可能な、拡張性の高いWebシステムを構築します。",
+          "bullets": [
+            "フロントエンド：React、Vue、Angular",
+            "バックエンド：Java（Spring Boot）、Node.js、Python（Django / FastAPI）、PHP",
+            "データベース：MySQL、PostgreSQL、MongoDB、Oracle",
+            "クラウド・インフラ：AWS、Azure、GCP、Naver Cloud"
+          ]
         },
         {
           "title": "モバイルアプリ開発",
-          "copy": "· Swift・Kotlinベースのネイティブアプリ開発<br />· 開発からデプロイ・運用まで全工程をサポート<br />· App Store および Google Play への登録・最適化対応"
+          "intro": "",
+          "bullets": [
+            "Swift・Kotlinベースのネイティブアプリ開発",
+            "開発からデプロイ・運用まで全工程をサポート",
+            "App Store および Google Play への登録・最適化対応"
+          ]
         }
       ]
     },
@@ -495,12 +568,22 @@
         "submit": "お問い合わせを送信"
       },
       "footer": "事業者番号&nbsp;&nbsp;|&nbsp;&nbsp;706-86-03507<br />住所&nbsp;&nbsp;|&nbsp;&nbsp;ソウル特別市 松坡区 松伊路135 5F<br />CEO / 代表者&nbsp;&nbsp;|&nbsp;&nbsp;ウォン・ヒョク"
+    },
+    "modal" : {
+      "success" : {
+        "title": "お問い合わせが正常に送信されました。",
+        "copy": "お問い合わせありがとうございます。内容を確認のうえ、担当者よりできるだけ早くご連絡いたします。"
+      },
+      "error" : {
+        "insufficient": "すべての項目を入力してください。"
+      },
+      "ok" : "OK"
     }
   },
   "cn": {
     "meta": {
       "title": "Blocksquare Labs | AI · Web · App · 区块链开发合作伙伴",
-      "description": "Bloksquare Labs 是一家提供 AI 开发、数据分析、Web·移动应用开发,以及 Web3 与区块链解决方案 的全流程工程团队。"
+      "description": "Blocksquare Labs 是一家提供 AI 开发、数据分析、Web·移动应用开发,以及 Web3 与区块链解决方案 的全流程工程团队。"
     },
     "brand": {
       "ariaLabel": "Blocksquare Labs 首页"
@@ -610,23 +693,47 @@
     },
     "services": {
       "title": "服务",
-      "copy": "BlockSquare Labs 提供覆盖 AI、数据、Web、移动端等领域,适用于真实运营环境的端到端工程服务。",
+      "copy": "BlockSquare Labs 提供覆盖 AI、数据、Web、移动端等领域，适用于真实运营环境的端到端工程服务。",
       "items": [
         {
           "title": "AI 开发",
-          "copy": "为实际商业场景设计并构建可落地的 AI 系统。<br />· 基于 LLM 的聊天机器人与自然语言处理(NLP)服务<br />· 机器学习模型开发与 MLOps 流水线搭建<br />· 计算机视觉解决方案(图像识别、OCR、缺陷检测等)<br />· 基于 RAG 的知识检索系统<br />· AI 数据分析与可视化仪表盘"
+          "intro": "为实际商业场景设计并构建可落地的 AI 系统。",
+          "bullets": [
+            "基于 LLM 的聊天机器人与自然语言处理（NLP）服务",
+            "机器学习模型开发与 MLOps 流水线搭建",
+            "计算机视觉解决方案（图像识别、OCR、缺陷检测等）",
+            "基于 RAG 的知识检索系统",
+            "AI 数据分析与可视化仪表盘"
+          ]
         },
         {
           "title": "数据分析与数据工程",
-          "copy": "· 数据管道设计与自动化<br />· 数据处理、转换及存储架构设计<br />· 外部 API 与多种数据源接入<br />· 即使在大规模环境下，也能保持系统性能与数据清晰度，帮助企业进行数据驱动决策。"
+          "intro": "",
+          "bullets": [
+            "数据管道设计与自动化",
+            "数据处理、转换及存储架构设计",
+            "外部 API 与多种数据源接入",
+            "即使在大规模环境下，也能保持系统性能与数据清晰度，帮助企业进行数据驱动决策。"
+          ]
         },
         {
           "title": "Web 开发",
-          "copy": "构建适用于多行业场景的高扩展性 Web 系统。<br />· 前端: React, Vue, Angular<br />· 后端: Java(Spring Boot), Node.js, Python(Django / FastAPI), PHP<br />· 数据库: MySQL, PostgreSQL, MongoDB, Oracle<br />· 云服务与基础设施: AWS、Azure、GCP、NAVER Cloud"
+          "intro": "构建适用于多行业场景的高扩展性 Web 系统。",
+          "bullets": [
+            "前端：React、Vue、Angular",
+            "后端：Java（Spring Boot）、Node.js、Python（Django / FastAPI）、PHP",
+            "数据库：MySQL、PostgreSQL、MongoDB、Oracle",
+            "云服务与基础设施：AWS、Azure、GCP、NAVER Cloud"
+          ]
         },
         {
           "title": "移动应用开发",
-          "copy": "· 基于 Swift、Kotlin 的原生 App 开发<br />· 从开发、部署到运营提供全流程支持<br />· App Store 与 Google Play 上架及优化"
+          "intro": "",
+          "bullets": [
+            "基于 Swift、Kotlin 的原生 App 开发",
+            "从开发、部署到运营提供全流程支持",
+            "App Store 与 Google Play 上架及优化"
+          ]
         }
       ]
     },
@@ -655,6 +762,17 @@
         "submit": "提交咨询"
       },
       "footer": "营业执照号码&nbsp;&nbsp;|&nbsp;&nbsp;706-86-03507<br />地址&nbsp;&nbsp;|&nbsp;&nbsp;韩国首尔特别市松坡区松伊路135号 5F<br />CEO / 法人代表&nbsp;&nbsp;|&nbsp;&nbsp;WON HYUK"
+    },
+    "modal" : {
+      "success" : {
+        "title": "咨询提交成功",
+        "copy": "感谢您的咨询。我们会尽快确认内容，并由负责人回复您。"
+      },
+      "error" : {
+        "insufficient": "请填写所有项目。"
+      },
+      "ok" : "OK"
     }
+
   }
 }
