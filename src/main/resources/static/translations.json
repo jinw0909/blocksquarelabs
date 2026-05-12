@@ -13,9 +13,9 @@
     "hero": {
       "title": "We build the tools,<br />You build the future.",
       "tags": {
-        "first" : "IT 개발",
-        "second":  "SaaS 플랫폼 엔지니어링",
-        "third" :  "Web3 &amp; 블록체인 솔루션"
+        "first" : "<span>IT </span><span>개발</span>",
+        "second":  "<span>SaaS </span><span>플랫폼 </span><span>엔지니어링</span>",
+        "third" :  "<span>Web3 </span>&amp;<span> 블록체인 </span><span>솔루션</span>"
       },
       "primaryCta": "프로젝트 의뢰",
       "secondaryCta": "더 알아보기"
@@ -90,7 +90,7 @@
       ]
     },
     "difference": {
-      "title": "What makes us<br />different.",
+      "title": "What <span>makes us</span><br />different.",
       "items": [
         {
           "title": "빠른 개발과 출시",
@@ -156,7 +156,16 @@
         "messagePlaceholder": "문의내용",
         "submit": "문의 보내기"
       },
-      "footer": "Business Registration Number&nbsp;&nbsp;|&nbsp;&nbsp;706-86-03507<br />Registered Address&nbsp;&nbsp;|&nbsp;&nbsp;5F, 135 Songi-ro, Songpa-gu, Seoul, Korea<br />CEO / Representative&nbsp;&nbsp;|&nbsp;&nbsp;Theo Won"
+      "footer": "사업자 번호&nbsp;&nbsp;|&nbsp;&nbsp;706-86-03507<br />주소&nbsp;&nbsp;|&nbsp;&nbsp;서울특별시 송파구 송이로 135 5F<br />CEO / 대표&nbsp;&nbsp;|&nbsp;&nbsp;원혁"
+    },
+    "modal" : {
+      "success" : {
+        "title": "문의 접수 완료",
+        "copy": "문의가 정상적으로 접수되었습니다."
+      },
+      "error" : {
+        "insufficient": "모든 항목을 입력해주세요"
+      }
     }
   },
   "en": {
@@ -317,6 +326,335 @@
         "submit": "Send Inquiry"
       },
       "footer": "Business Registration Number&nbsp;&nbsp;|&nbsp;&nbsp;706-86-03507<br />Registered Address&nbsp;&nbsp;|&nbsp;&nbsp;5F, 135 Songi-ro, Songpa-gu, Seoul, Korea<br />CEO / Representative&nbsp;&nbsp;|&nbsp;&nbsp;Theo Won"
+    },
+    "modal" : {
+      "success" : {
+        "title": "Submit Successful",
+        "copy": "Thanks for reaching out. We’ll review your request and get back to you shortly"
+      },
+      "error" : {
+        "insufficient": "Please fill in all fields"
+      }
+    }
+  },
+  "jp": {
+    "meta": {
+      "title": "Blocksquare Labs | AI, Web3, Web & Mobile App Development",
+      "description": "Blocksquare Labs is a full-cycle engineering team providing AI development, data analytics, web and mobile app development, and Web3 blockchain solutions."
+    },
+    "brand": {
+      "ariaLabel": "Blocksquare Labs home"
+    },
+    "lang": {
+      "ariaLabel": "Select language"
+    },
+    "hero": {
+      "title": "We build the tools,<br />You build the future.",
+      "tags": {
+        "first" : "<span>IT</span><span>開発</span>",
+        "second":  "<span>SaaS</span><span>プラットフォーム</span><span>エンジニアリング</span>",
+        "third" :  "<strong>Web3</strong><strong>&amp;</strong><span>ブロックチェーン</span><span>ソリューション</span>"
+      },
+      "primaryCta": "プロジェクト依頼",
+      "secondaryCta": "詳しく見る"
+    },
+    "about": {
+      "title": "ABOUT US",
+      "copy": "デジタルプロダクトの企画から開発・運用までを支えるフルサイクルエンジニアリングチーム。アイデアを、実際に運用できるシステムへ。私たちはお客様と密接に連携し、迅速な実行力、明確なコミュニケーション、長期的な拡張性を軸に、ビジネスの成長を支えるデジタルプロダクトを実現します。",
+      "strengthTitle": "Core Strength",
+      "strengths": [
+        {
+          "title": "End-to-Endのオーナーシップ",
+          "copy": "企画・設計・デザイン・開発・QA・デプロイ・運用まで、すべての工程を社内で一貫して対応し、コミュニケーションコストと開発期間を最小化します。"
+        },
+        {
+          "title": "データドリブンな実行力",
+          "copy": "独自の分析基盤とダッシュボード構築により、リアルタイムなデータ分析と直感的な可視化を提供します。"
+        },
+        {
+          "title": "フルスタック開発力",
+          "copy": "フロントエンド・バックエンド・モバイル・データベース・インフラまで、幅広い領域をカバーする開発力を備えています。"
+        },
+        {
+          "title": "スピーディーなアプリリリース",
+          "copy": "iOS・Androidアプリの審査対応経験を活かし、リリースまでの期間を短縮します。"
+        },
+        {
+          "title": "API連携・自動化",
+          "copy": "外部API連携を含むデータ収集・処理・自動化システムの構築に対応可能です。"
+        },
+        {
+          "title": "グローバルプロジェクト経験",
+          "copy": "海外クライアントとの協業経験をもとに、多様な要件やコミュニケーション環境へ柔軟に対応します。"
+        }
+      ]
+    },
+    "team": {
+      "title": "Team",
+      "copy": "開発・デザイン・企画・運用まで、各分野の専門メンバーで構成されており、全工程における有機的な連携を通じて、安定性と完成度の高いプロダクトを提供します。",
+      "people": [
+        {
+          "name": "Theo Won",
+          "role": "CEO",
+          "copy": "フルスタックエンジニア（実務経験10年以上）<br />主要プロジェクト開発：<br />· ソウル都市鉄道公社 無人券売システム<br />· AIを活用した暗号資産トレンド予測システム"
+        },
+        {
+          "name": "Alex Hong",
+          "role": "開発総括",
+          "copy": "フルスタックエンジニア（実務経験15年以上）<br />大規模公共プロジェクト開発：<br />· 京畿道庁 第2次災難基本所得支給システム<br />· COVID-19 疫学調査システム"
+        }
+      ],
+      "roles": [
+        {
+          "title": "開発 (Engineering)",
+          "copy": "Java、JavaScript、Python、PHP、Swift、Spring など多様な技術スタックを基盤に、拡張性と安定性を備えたシステムを構築してきた豊富な実務経験を有しています。"
+        },
+        {
+          "title": "デザイン (Design)",
+          "copy": "Figma、Adobe XD、Photoshop、CapCut、After Effects などを活用し、プロダクトのUI/UX設計からビジュアルコンテンツ制作まで対応します。"
+        },
+        {
+          "title": "パブリッシング（Publishing）",
+          "copy": "HTML/CSSベースのマークアップと、Web標準およびアクセシビリティを考慮したパブリッシングを専門としています。"
+        },
+        {
+          "title": "事業開発（Business Development）",
+          "copy": "B2B営業およびパートナーシップ構築の経験を活かし、安定したビジネス拡大を支援します。"
+        },
+        {
+          "title": "企画（Planning）",
+          "copy": "要件分析・提案書作成・サービス設計に特化した、実践的な企画力を備えています。"
+        }
+      ]
+    },
+    "difference": {
+      "title": "私たちが<br />選ばれる<span>理由</span>",
+      "items": [
+        {
+          "title": "迅速な開発とリリース",
+          "copy": "迅速なアプリ審査対応によりリリース期間を短縮し、市場投入までのスピードを最大化します。"
+        },
+        {
+          "title": "ワンストップ開発パートナー",
+          "copy": "ワンストップ開発パートナーとして全工程を一括管理し、不要なコミュニケーションコストを最小限に抑えます。"
+        },
+        {
+          "title": "データドリブンなインサイト",
+          "copy": "大規模なブロックチェーンデータをリアルタイムで処理し、高度なチャートエンジンを通じて可視化します。"
+        },
+        {
+          "title": "自動化による収益拡張性",
+          "copy": "API連携および取引所ボットを活用し、反復業務を自動化することで運営効率を最大化します。"
+        }
+      ]
+    },
+    "services": {
+      "title": "サービス",
+      "copy": "Blocksquare Labsは、AI・データ・Web・モバイルを含む幅広い領域において、実運用環境に最適化されたEnd-to-Endエンジニアリングサービスを提供しています。",
+      "items": [
+        {
+          "title": "AI開発",
+          "copy": "実際のビジネス環境に適用可能なAIシステムを設計・構築します。<br />· LLMベースのチャットボットおよび自然言語処理（NLP）サービス<br />· 機械学習モデル開発およびMLOpsパイプライン構築<br />· コンピュータビジョンソリューション（画像認識、OCR、不良検知 など）<br />· RAGベースのナレッジ検索システム<br />· AIベースのデータ分析およびダッシュボード可視化"
+        },
+        {
+          "title": "データ分析・エンジニアリング",
+          "copy": "· データパイプライン設計および自動化<br />· データ処理・変換・保存構造の設計<br />· 外部APIおよび多様なデータソースとの連携<br />· 大規模環境においてもパフォーマンスと可読性を維持し、データドリブンな意思決定を支援します。"
+        },
+        {
+          "title": "Web開発",
+          "copy": "さまざまな業界に対応可能な、拡張性の高いWebシステムを構築します。<br />· フロントエンド：React、Vue、Angular<br />· Backend: バックエンド：Java（Spring Boot）、Node.js、Python（Django / FastAPI）、PHP<br />· データベース：MySQL、PostgreSQL、MongoDB、Oracle<br />· クラウド・インフラ：AWS、Azure、GCP、Naver Cloud"
+        },
+        {
+          "title": "モバイルアプリ開発",
+          "copy": "· Swift・Kotlinベースのネイティブアプリ開発<br />· 開発からデプロイ・運用まで全工程をサポート<br />· App Store および Google Play への登録・最適化対応"
+        }
+      ]
+    },
+    "projects": {
+      "title": "PROJECTS",
+      "copy": "Blocksquare Labsは、多様なプロジェクトの遂行を通じて蓄積された高度な技術力と豊富な経験を有しています。\nAIベースのチャートエンジンやトレーディングボットをはじめ、取引所システム、グローバルプラットフォームに至るまで、継続的に技術領域を拡大してきました。\nすべてのプロジェクトは、企画・デザイン・開発・QA・保守運用までを含む One-Stop Build プロセスを通じて実施されています。",
+      "timeline": [
+        "Web・アプリベースのAI暗号資産アービトラージトレーディングボットを開発",
+        "オンチェーンデータをディープラーニングで分析する、AIベースの暗号資産チャートを開発",
+        "価格パターンおよび指標を高度化し、価格予測を提供する高機能チャートソリューションを開発<br />市場トレンド分析に基づく通知を提供する暗号資産アラートアプリを開発",
+        "取引所パートナーページと連携したプラットフォームを構築",
+        "暗号資産トレーディングシミュレーターを含む、グローバル予測プラットフォームをEnd-to-Endで開発"
+      ],
+      "dashboardAlt": "Dashboard Admin project",
+      "mobileAlt": "Mobile and trading project screens"
+    },
+    "contact": {
+      "title": "プロジェクトをご計画中ですか？",
+      "copy": "ご要望をお送りいただければ、内容を迅速に確認のうえご連絡いたします。",
+      "mapAlt": "Company location map",
+      "form": {
+        "namePlaceholder": "名前",
+        "emailPlaceholder": "メールアドレス",
+        "servicePlaceholder": "サービス種類",
+        "messagePlaceholder": "お問い合わせ内容",
+        "submit": "お問い合わせを送信"
+      },
+      "footer": "事業者番号&nbsp;&nbsp;|&nbsp;&nbsp;706-86-03507<br />住所&nbsp;&nbsp;|&nbsp;&nbsp;ソウル特別市 松坡区 松伊路135 5F<br />CEO / 代表者&nbsp;&nbsp;|&nbsp;&nbsp;ウォン・ヒョク"
+    }
+  },
+  "cn": {
+    "meta": {
+      "title": "Blocksquare Labs | AI · Web · App · 区块链开发合作伙伴",
+      "description": "Bloksquare Labs 是一家提供 AI 开发、数据分析、Web·移动应用开发,以及 Web3 与区块链解决方案 的全流程工程团队。"
+    },
+    "brand": {
+      "ariaLabel": "Blocksquare Labs 首页"
+    },
+    "lang": {
+      "ariaLabel": "选择语言"
+    },
+    "hero": {
+      "title": "我们打造工具,<br />由你创造未来",
+      "tags": {
+        "first" : "<strong>IT</strong><span>开发</span>",
+        "second":  "<strong>SaaS</strong><span>平台工程</span>",
+        "third" :  "<strong>Web3</strong><span>与区块链解决方案</span>"
+      },
+      "primaryCta": "项目咨询",
+      "secondaryCta": "了解更多"
+    },
+    "about": {
+      "title": "关于<span>我们</span>",
+      "copy": "我们是一支从数字产品策划、开发到部署，全流程自主完成的全周期工程团队。我们与客户紧密协作，将创意真正落地为可运营的系统，并以高效执行力、清晰沟通以及长期可扩展性作为核心价值。",
+      "strengthTitle": "核心优势",
+      "strengths": [
+        {
+          "title": "端到端全流程负责",
+          "copy": "从策划、架构设计、UI设计、开发、QA测试、部署到运营维护,全部由内部团队独立完成,有效减少沟通成本与开发周期。"
+        },
+        {
+          "title": "数据驱动执行能力",
+          "copy": "通过自主搭建的数据分析架构与可视化仪表盘，实现实时数据分析与直观展示。"
+        },
+        {
+          "title": "全栈开发能力",
+          "copy": "具备覆盖前端、后端、移动端、数据库及基础设施等全领域开发能力。"
+        },
+        {
+          "title": "快速应用上线",
+          "copy": "拥有丰富的 iOS 与 Android 应用审核应对经验，可有效缩短产品上线时间。"
+        },
+        {
+          "title": "API 接入与自动化",
+          "copy": "支持外部 API 接入、数据采集、数据处理以及自动化系统搭建。"
+        },
+        {
+          "title": "全球化项目经验",
+          "copy": "拥有丰富的海外客户合作经验，可灵活应对不同需求及多语言沟通环境。"
+        }
+      ]
+    },
+    "team": {
+      "title": "团队",
+      "copy": "由开发、设计、策划、运营等各领域专业人才组成，通过全流程高效协作，提供稳定且高质量的项目成果.",
+      "people": [
+        {
+          "name": "Theo Won",
+          "role": "CEO",
+          "copy": "全栈工程师(10年以上经验)核心项目开发经历：首尔城市铁路公社无人售票系统,基于 AI 的加密货币趋势预测系统"
+        },
+        {
+          "name": "Alex Hong",
+          "role": "开发总负责人",
+          "copy": "全栈工程师(15年以上经验)大型公共项目开发经历：京畿道政府第二轮灾难基本收入发放系统,新冠疫情流行病学调查系统"
+        }
+      ],
+      "roles": [
+        {
+          "title": "开发 (Engineering)",
+          "copy": "基于 Java、JavaScript、Python、PHP、Swift、Spring 等多种技术栈，拥有构建高扩展性与高稳定性系统的丰富实战经验。"
+        },
+        {
+          "title": "设计 (Design)",
+          "copy": "使用 Figma、Adobe XD、Photoshop、CapCut、After Effects 等工具，可完成从产品 UI/UX 设计到视觉内容制作的全流程工作。"
+        },
+        {
+          "title": "前端制作 (Publishing)",
+          "copy": "专注于基于 HTML/CSS 的页面开发，并兼顾 Web 标准与无障碍访问规范。"
+        },
+        {
+          "title": "商务拓展 (Business Development)",
+          "copy": "基于丰富的 B2B 销售及合作伙伴拓展经验，支持企业稳定增长。"
+        },
+        {
+          "title": "产品策划 (Planning)",
+          "copy": "具备需求分析、方案撰写及服务架构设计等专业策划能力。"
+        }
+      ]
+    },
+    "difference": {
+      "title": "我们的<br />不同之处",
+      "items": [
+        {
+          "title": "快速开发与上线",
+          "copy": "通过快速响应应用审核流程，缩短上线周期，最大化提升市场进入速度。"
+        },
+        {
+          "title": "一站式开发合作伙伴",
+          "copy": "作为一站式开发合作伙伴，我们统一管理整个开发流程，最大程度减少不必要的沟通成本。"
+        },
+        {
+          "title": " 数据驱动洞察能力",
+          "copy": "实时处理大规模区块链数据，并通过高级图表引擎进行可视化展示。"
+        },
+        {
+          "title": "自动化收益扩展能力",
+          "copy": " 通过 API 接入与交易所机器人，实现重复业务自动化，大幅提升运营效率。"
+        }
+      ]
+    },
+    "services": {
+      "title": "服务",
+      "copy": "BlockSquare Labs 提供覆盖 AI、数据、Web、移动端等领域,适用于真实运营环境的端到端工程服务。",
+      "items": [
+        {
+          "title": "AI 开发",
+          "copy": "为实际商业场景设计并构建可落地的 AI 系统。<br />· 基于 LLM 的聊天机器人与自然语言处理(NLP)服务<br />· 机器学习模型开发与 MLOps 流水线搭建<br />· 计算机视觉解决方案(图像识别、OCR、缺陷检测等)<br />· 基于 RAG 的知识检索系统<br />· AI 数据分析与可视化仪表盘"
+        },
+        {
+          "title": "数据分析与数据工程",
+          "copy": "· 数据管道设计与自动化<br />· 数据处理、转换及存储架构设计<br />· 外部 API 与多种数据源接入<br />· 即使在大规模环境下，也能保持系统性能与数据清晰度，帮助企业进行数据驱动决策。"
+        },
+        {
+          "title": "Web 开发",
+          "copy": "构建适用于多行业场景的高扩展性 Web 系统。<br />· 前端: React, Vue, Angular<br />· 后端: Java(Spring Boot), Node.js, Python(Django / FastAPI), PHP<br />· 数据库: MySQL, PostgreSQL, MongoDB, Oracle<br />· 云服务与基础设施: AWS、Azure、GCP、NAVER Cloud"
+        },
+        {
+          "title": "移动应用开发",
+          "copy": "· 基于 Swift、Kotlin 的原生 App 开发<br />· 从开发、部署到运营提供全流程支持<br />· App Store 与 Google Play 上架及优化"
+        }
+      ]
+    },
+    "projects": {
+      "title": "项目案例",
+      "copy": "BlockSquare Labs 通过多个项目积累了深厚的技术实力与丰富经验。从 AI 图表引擎、交易机器人,到交易所系统与全球化平台,我们持续扩展技术边界。所有项目均采用涵盖策划、设计、开发、QA 与维护的一站式开发流程。",
+      "timeline": [
+        "开发基于 Web 与 App 的 AI 加密货币套利交易机器人",
+        "开发通过深度学习分析链上数据的 AI 加密货币图表系统",
+        "开发基于价格模式与指标优化的高级价格预测图表解决方案<br />开发基于市场趋势分析的加密货币提醒应用",
+        "搭建与交易所合作伙伴页面联动的平台系统",
+        "端到端开发集成加密货币交易模拟器的全球预测平台"
+      ],
+      "dashboardAlt": "Dashboard Admin project",
+      "mobileAlt": "Mobile and trading project screens"
+    },
+    "contact": {
+      "title": "正在规划项目吗？",
+      "copy": "请留下您的需求，我们将在确认后尽快与您联系。",
+      "mapAlt": "회사 위치 지도",
+      "form": {
+        "namePlaceholder": "姓名",
+        "emailPlaceholder": "邮箱",
+        "servicePlaceholder": "服务类型",
+        "messagePlaceholder": "咨询内容",
+        "submit": "提交咨询"
+      },
+      "footer": "营业执照号码&nbsp;&nbsp;|&nbsp;&nbsp;706-86-03507<br />地址&nbsp;&nbsp;|&nbsp;&nbsp;韩国首尔特别市松坡区松伊路135号 5F<br />CEO / 法人代表&nbsp;&nbsp;|&nbsp;&nbsp;WON HYUK"
     }
   }
 }

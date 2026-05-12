@@ -1,3 +1,6 @@
+/* ==========================================================================
+   Global design tokens
+   ========================================================================== */
 :root {
   --bg: #000;
   --text: #f7f8fb;
@@ -8,12 +11,16 @@
   --card-dark: rgba(0, 18, 44, 0.72);
 }
 
+/* ==========================================================================
+   Base reset and document defaults
+   ========================================================================== */
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -48,6 +55,22 @@ body {
   font-family: Inter, Pretendard, "Noto Sans KR", Arial, sans-serif;
   line-height: 1.35;
 }
+html[lang="ko"] body {
+  font-family: "Noto Sans KR", "Noto Sans", Arial, sans-serif;
+}
+
+html[lang="en"] body {
+  font-family: "Noto Sans", Arial, sans-serif;
+}
+
+html[lang="ja"] body {
+  font-family: "Noto Sans JP", "Noto Sans", Arial, sans-serif;
+}
+
+html[lang="zh-CN"] body {
+  font-family: "Noto Sans SC", "Noto Sans", Arial, sans-serif;
+}
+
 
 main {
   overflow-x: hidden;
@@ -63,12 +86,18 @@ img {
   max-width: 100%;
 }
 
+/* ==========================================================================
+   Shared layout containers
+   ========================================================================== */
 .section-wrap,
 .header-inner {
   width: min(1200px, calc(100% - 48px));
   margin: 0 auto;
 }
 
+/* ==========================================================================
+   Header and navigation
+   ========================================================================== */
 .site-header {
   position: sticky;
   inset: 0 0 auto;
@@ -151,18 +180,20 @@ img {
   background: #050505;
 }
 
+/* ==========================================================================
+   Hero section
+   ========================================================================== */
 #top {
   scroll-margin-top: 6rem;
 }
 
 .hero {
   position: relative;
-  height: calc(100vh - 5rem);
+  height: calc(100dvh - 5rem);
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 .hero-art {
   position: absolute;
@@ -219,13 +250,14 @@ img {
   margin: 54px 0 0;
   font-size: 24px;
   font-weight: 900;
+  padding: 0 2rem;
 }
 
-.hero-tags span {
-  width: 48px;
-  height: 16px;
-  background: radial-gradient(circle, #fff 0 4%, #2f82ff 8%, transparent 70%);
-}
+
+
+
+
+
 
 .hero-actions {
   display: flex;
@@ -240,11 +272,40 @@ img {
   height: 40px;
   pointer-events: none;
 }
+/*.hero-tag {*/
+/*  display: inline-block;*/
+/*  margin: 0;*/
+/*}*/
+
 .hero-tag {
-  display: inline-block;
-  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 0;
+  max-width: 100%;
+  column-gap: 0.25em;
 }
 
+html[lang="zh-CN"] .hero-tag {
+  column-gap: 0;
+}
+html[lang="ja"] .hero-tag {
+  column-gap: 0;
+}
+
+.hero-tag strong {
+  margin-right: 0.25rem;
+  font-weight: 600;
+}
+
+.hero-tag span {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
 .btn,
 .contact-form button {
   display: inline-flex;
@@ -265,6 +326,9 @@ img {
   background: var(--blue);
 }
 
+/* ==========================================================================
+   About section
+   ========================================================================== */
 .about {
   padding: 110px 0 220px;
 }
@@ -338,14 +402,15 @@ h2 {
 }
 
 h4 {
-  margin: 0 0 24px;
+  /*margin: 0 0 24px;*/
+  margin: 0;
   color: #fff;
   font-size: 24px;
   line-height: 1.2;
 }
 
 p {
-  word-break: keep-all;
+  /*word-break: keep-all;*/
 }
 
 .strength-grid p,
@@ -366,6 +431,9 @@ p {
   padding: 0 1rem;
 }
 
+/* ==========================================================================
+   Team section
+   ========================================================================== */
 .team-block .section-kicker {
   margin-top: 120px;
   margin-bottom: 30px;
@@ -423,6 +491,9 @@ p {
   transform: translateY(100%);
 }
 
+/* ==========================================================================
+   Difference section
+   ========================================================================== */
 .difference {
   display: grid;
   grid-template-columns: 1.2fr 1.7fr;
@@ -435,6 +506,9 @@ p {
   font-size: 64px;
   font-weight: 400;
   line-height: 1.18;
+}
+.difference h3 span {
+  white-space: nowrap;
 }
 
 .difference-list {
@@ -488,6 +562,9 @@ p {
   background: repeating-radial-gradient(ellipse at center, #2f82ff 0 5px, #00194a 6px 12px, transparent 13px 19px);
 }
 
+/* ==========================================================================
+   Services section
+   ========================================================================== */
 .services {
   position: relative;
   min-height: 1080px;
@@ -645,6 +722,9 @@ p {
   grid-row: 3;
 }
 
+/* ==========================================================================
+   Projects section
+   ========================================================================== */
 .projects {
   position: relative;
   /*overflow: hidden;*/
@@ -767,7 +847,6 @@ p {
 /*  justify-content: center;*/
 /*  gap: 24px;*/
 /*}*/
-
 
 /*.project-showcase button {*/
 /*  border: 0;*/
@@ -920,13 +999,16 @@ p {
   mask-composite: intersect;
 }
 
+/* ==========================================================================
+   Contact section
+   ========================================================================== */
 .contact {
   padding: 165px 0 90px;
   text-align: center;
 }
 
 .contact h2 {
-  font-size: clamp(52px, 7vw, 112px);
+  font-size: clamp(50px, 7vw, 100px);
   font-weight: 900;
   letter-spacing: 0;
   white-space: nowrap;
@@ -935,6 +1017,13 @@ p {
   background-clip: text;
   color: transparent;
 }
+
+
+html[lang="ja"] .contact h2 {
+  font-size: clamp(50px, 6vw, 80px);
+}
+
+
 
 .contact > p {
   margin: 56px 0 58px;
@@ -986,7 +1075,9 @@ p {
   display: block;
 }
 
-
+/* ==========================================================================
+   Success modal
+   ========================================================================== */
 /* ===== 문의 성공 창  ===== */
 .modal-overlay {
   display: none;
@@ -1043,7 +1134,9 @@ p {
 }
 /* ===== 문의 성공 창 끝 ===== */
 
-
+/* ==========================================================================
+   Footer
+   ========================================================================== */
 .footer-info {
   margin-top: 72px;
   padding: 28px 0;
@@ -1052,6 +1145,21 @@ p {
   color: #fff;
   font-size: 14px;
   line-height: 1.6;
+}
+
+/* ==========================================================================
+   Responsive layout: tablet and mobile
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .nav {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 850px) {
+  .nav {
+    margin-left: 1rem;
+  }
 }
 
 @media (max-width: 769px) {
@@ -1083,7 +1191,7 @@ p {
   }
 
   .hero {
-    height: calc(100vh - 6rem);
+    height: calc(100dvh - 6rem);
   }
 
   .hero-art {
@@ -1096,7 +1204,8 @@ p {
     bottom: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
+    justify-content: space-evenly;
     width: 100%;
     text-align: center;
     padding: 0 1rem;
@@ -1117,25 +1226,22 @@ p {
   }
 
   .hero-tags {
-    margin: 3rem 0;
+    /*margin: 3rem 0;*/
     gap: 4px;
   }
 
-
   .hero-tags h4 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
-  .hero-tags span {
-    display: none;
-  }
+  /*.hero-tags span {*/
+  /*  display: none;*/
+  /*}*/
 
   /*.btn {*/
   /*  width: 200px;*/
   /*  height: 40px;*/
   /*}*/
-
-
 
   .intro-grid,
   .project-top,
@@ -1146,6 +1252,10 @@ p {
 
   .intro-grid h2 {
     font-size: clamp(32px, 10vw, 100px);
+  }
+
+  .intro-grid span {
+    white-space: nowrap;
   }
 
   .section-kicker {
@@ -1207,7 +1317,6 @@ p {
     display: none;
   }
 
-
   .difference {
     grid-template-columns: 1fr;
     margin-top: 0;
@@ -1264,7 +1373,6 @@ p {
     font-size: 1.5rem;
   }
 
-
   .about {
     padding: 110px 0;
   }
@@ -1285,13 +1393,11 @@ p {
     font-size: clamp(32px, 10vw, 100px);
   }
 
-
   .project-copy.star-copy {
     margin-top: 4rem;
     font-size: 1rem;
     font-weight: 600;
   }
-
 
   .contact h2 {
     white-space: normal;
@@ -1321,10 +1427,6 @@ p {
     gap: 8px;
     margin: 5rem 0;
   }
-
-
-
-
 
   .project-slider-btn {
     width: 36px;
@@ -1378,15 +1480,16 @@ p {
 
 }
 
-
 /* 기본은 PC 그리드만 보이게 */
+/* ==========================================================================
+   Mobile services layout
+   ========================================================================== */
 .services-grid-mobile {
   display: none;
 }
 
 /* 모바일 */
 @media (max-width: 768px) {
-
 
   .services-grid {
     display: none;
@@ -1446,7 +1549,6 @@ p {
   }
 }
 
-
 @media (max-width: 579px) {
   /*.hero-tags .light-img {*/
   /*  display: none;*/
@@ -1461,6 +1563,9 @@ p {
   }
 }
 
+/* ==========================================================================
+   Anchor offset helpers
+   ========================================================================== */
 section {
   scroll-margin-top: 6rem;
 }
@@ -1471,6 +1576,9 @@ section {
   }
 }
 
+/* ==========================================================================
+   Language menu
+   ========================================================================== */
 .lang-menu {
   position: relative;
   z-index: 1000;
