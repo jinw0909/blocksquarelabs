@@ -1,0 +1,221 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body.admin-body {
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Segoe UI", sans-serif;
+    background:
+            radial-gradient(circle at top left, rgba(66, 133, 244, 0.22), transparent 32rem),
+            radial-gradient(circle at bottom right, rgba(0, 180, 216, 0.16), transparent 30rem),
+            #111;
+    color: #fff;
+}
+
+.login-page,
+.admin-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.login-card,
+.admin-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 2.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.075);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.login-header,
+.admin-header {
+    margin-bottom: 2rem;
+}
+
+.eyebrow {
+    margin-bottom: 0.7rem;
+    color: #8ab4ff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+h1 {
+    margin-bottom: 0.7rem;
+    font-size: clamp(1.8rem, 5vw, 2.3rem);
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+}
+
+.description {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.form-group label {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    height: 48px;
+    padding: 0 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    outline: none;
+    background: rgba(0, 0, 0, 0.28);
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.form-group input:focus {
+    border-color: rgba(138, 180, 255, 0.85);
+    background: rgba(0, 0, 0, 0.38);
+    box-shadow: 0 0 0 4px rgba(138, 180, 255, 0.16);
+}
+
+.primary-button,
+.secondary-button {
+    width: 100%;
+    height: 50px;
+    border: 0;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.18s ease, opacity 0.18s ease, box-shadow 0.18s ease;
+}
+
+.primary-button {
+    margin-top: 0.4rem;
+    background: linear-gradient(135deg, #4c8dff, #6de0ff);
+    color: #08111f;
+    box-shadow: 0 14px 34px rgba(76, 141, 255, 0.28);
+}
+
+.secondary-button {
+    margin-top: 1.4rem;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+    transform: translateY(-1px);
+    opacity: 0.94;
+}
+
+.primary-button:active,
+.secondary-button:active {
+    transform: translateY(0);
+}
+
+.error-message,
+.logout-message {
+    margin-bottom: 1.2rem;
+    padding: 0.85rem 0.95rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.error-message {
+    border: 1px solid rgba(255, 99, 99, 0.32);
+    background: rgba(255, 99, 99, 0.12);
+    color: #ffb4b4;
+}
+
+.logout-message {
+    border: 1px solid rgba(109, 224, 255, 0.28);
+    background: rgba(109, 224, 255, 0.1);
+    color: #b8f2ff;
+}
+
+.info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.22);
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.info-label {
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 0.9rem;
+}
+
+.info-value {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-align: right;
+    word-break: break-all;
+}
+
+@media (max-width: 480px) {
+    .login-page,
+    .admin-page {
+        padding: 1rem;
+    }
+
+    .login-card,
+    .admin-card {
+        padding: 1.6rem;
+        border-radius: 20px;
+    }
+
+    .info-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .info-value {
+        text-align: left;
+    }
+}

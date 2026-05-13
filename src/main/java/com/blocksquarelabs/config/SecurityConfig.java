@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -26,10 +27,13 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                .csrf(csrf -> csrf.disable())
+//                .csrf(csrf -> csrf.disable())
+                .csrf(csrf -> csrf
+                        .ignoringRequestMatchers(PathPatternRequestMatcher.withDefaults().matcher("/api/**"))
+                )
                 .authorizeHttpRequests(auth -> auth
                         // index.html
-                        .requestMatchers("/", "/index.html").permitAll()
+                        .requestMatchers("/", "/index.html", "/login").permitAll()
 
                         // API
                         .requestMatchers("/api/**").permitAll()
@@ -37,6 +41,8 @@ public class SecurityConfig {
                         // 정적 리소스
                         .requestMatchers(
                                 "/assets/**",
+                                "/css/**",
+                                "/js/**",
                                 "/*.png",
                                 "/*.jpg",
                                 "/*.jpeg",
@@ -46,7 +52,9 @@ public class SecurityConfig {
                                 "/*.css",
                                 "/*.js",
                                 "/*.json",
-                                "/*.ico"
+                                "/*.ico",
+                                "/*.txt",
+                                "/*.xml"
                         ).permitAll()
 
                         // 관리자 페이지
@@ -56,9 +64,11 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-//                        .loginPage("/login").permitAll()
-                                .defaultSuccessUrl("/admin", true)
-                                .permitAll()
+                        .loginPage("/login")
+                        .loginProcessingUrl("/login")
+                        .defaultSuccessUrl("/admin", true)
+                        .failureUrl("/login?error=true")
+                        .permitAll()
                 )
 
                 .logout(logout -> logout
