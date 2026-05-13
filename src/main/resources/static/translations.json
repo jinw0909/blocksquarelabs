@@ -445,12 +445,12 @@
         {
           "name": "Theo Won",
           "role": "CEO",
-          "copy": "フルスタックエンジニア（実務経験10年以上）<br />主要プロジェクト開発：<br />· ソウル都市鉄道公社 無人券売システム<br />· AIを活用した暗号資産トレンド予測システム"
+          "copy": "フルスタックエンジニア（実務経験10年以上）<br />主要プロジェクト開発：<br /><ul><li>ソウル都市鉄道公社 無人券売システム</li><li>AIを活用した暗号資産トレンド予測システム</li></ul>"
         },
         {
           "name": "Alex Hong",
           "role": "開発総括",
-          "copy": "フルスタックエンジニア（実務経験15年以上）<br />大規模公共プロジェクト開発：<br />· 京畿道庁 第2次災難基本所得支給システム<br />· COVID-19 疫学調査システム"
+          "copy": "フルスタックエンジニア（実務経験15年以上）<br />大規模公共プロジェクト開発：<br /><ul><li>京畿道庁 第2次災難基本所得支給システム</li><li>COVID-19 疫学調査システム</li></ul>"
         }
       ],
       "roles": [
@@ -639,33 +639,33 @@
         {
           "name": "Theo Won",
           "role": "CEO",
-          "copy": "全栈工程师(10年以上经验)核心项目开发经历：首尔城市铁路公社无人售票系统,基于 AI 的加密货币趋势预测系统"
+          "copy": "全栈工程师（10年以上经验）<br/>核心项目开发经历：<br/><ul><li>首尔城市铁路公社无人售票系统</li><li>基于 AI 的加密货币趋势预测系统</li></ul>"
         },
         {
           "name": "Alex Hong",
           "role": "开发总负责人",
-          "copy": "全栈工程师(15年以上经验)大型公共项目开发经历：京畿道政府第二轮灾难基本收入发放系统,新冠疫情流行病学调查系统"
+          "copy": "全栈工程师（15年以上经验）<br/>大型公共项目开发经历：<br/><ul><li>京畿道政府第二轮灾难基本收入发放系统</li><li>新冠疫情流行病学调查系统</li></ul>"
         }
       ],
       "roles": [
         {
-          "title": "开发 (Engineering)",
+          "title": "开发（Engineering）",
           "copy": "基于 Java、JavaScript、Python、PHP、Swift、Spring 等多种技术栈，拥有构建高扩展性与高稳定性系统的丰富实战经验。"
         },
         {
-          "title": "设计 (Design)",
+          "title": "设计（Design）",
           "copy": "使用 Figma、Adobe XD、Photoshop、CapCut、After Effects 等工具，可完成从产品 UI/UX 设计到视觉内容制作的全流程工作。"
         },
         {
-          "title": "前端制作 (Publishing)",
+          "title": "前端制作（Publishing）",
           "copy": "专注于基于 HTML/CSS 的页面开发，并兼顾 Web 标准与无障碍访问规范。"
         },
         {
-          "title": "商务拓展 (Business Development)",
+          "title": "商务拓展（Business Development）",
           "copy": "基于丰富的 B2B 销售及合作伙伴拓展经验，支持企业稳定增长。"
         },
         {
-          "title": "产品策划 (Planning)",
+          "title": "产品策划（Planning）",
           "copy": "具备需求分析、方案撰写及服务架构设计等专业策划能力。"
         }
       ]
