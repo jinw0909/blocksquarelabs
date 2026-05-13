@@ -17,9 +17,16 @@ public class InquiryMailService {
     private String inquiryTo;
 
     public void sendInquiryMail(Inquiry inquiry) {
+
+        if (inquiry.getEmail() != null && inquiry.getEmail().contains("\n") || inquiry.getEmail().contains("\r")) {
+            throw new IllegalArgumentException("Invalid email");
+        }
+
         SimpleMailMessage message = new SimpleMailMessage();
 
         message.setTo(inquiryTo);
+        message.setReplyTo(inquiry.getEmail());
+
         message.setSubject("[Blocksquare Labs] 새로운 문의가 도착했습니다.");
 
         message.setText(

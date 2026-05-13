@@ -435,6 +435,24 @@ p {
   line-height: 1.42;
 }
 
+
+.people-grid p ul {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding-left: 0;
+}
+
+.people-grid p li {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.people-grid p li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+}
+
 .difference-list p {
   justify-self: start;
   padding: 0 1rem;
@@ -1451,7 +1469,7 @@ html[lang="ja"] .contact h2 {
   }
 
   .timeline span {
-    padding-top: 4px;
+    padding-top: 6px;
     font-size: .8rem;
   }
 
@@ -1601,12 +1619,30 @@ html[lang="ja"] .contact h2 {
 }
 
 @media (max-width: 579px) {
-  /*.hero-tags .light-img {*/
-  /*  display: none;*/
-  /*}*/
+
+  .strength-grid p,
+  .team-lead,
+  .people-grid p,
+  .role-board p,
+  .difference-list p,
+  .service-grid p,
+  .project-copy {
+    color: #d9dce6;
+    font-size: 12px;
+    line-height: 1.42;
+  }
+
+  .section-kicker {
+    margin-bottom: 40px;
+  }
+
   .light-img {
     width: 40px;
     height: 30px;
+  }
+
+  .services-grid-mobile .bullet-line {
+    font-size: 12px;
   }
 
   .contact h2 {
