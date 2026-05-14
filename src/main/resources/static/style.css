@@ -608,7 +608,7 @@ p {
   /*right: 0;*/
   right: calc((min(1200px, calc(100vw - 48px)) - 100vw) / 2);
   width: min(61vw, 1020px);
-  height: 690px;
+  aspect-ratio: 1113 / 555;
   background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.08) 36%, rgba(0, 0, 0, 0.9) 100%), url("assets/service-background.png") right top / contain no-repeat;
   opacity: 0.95;
 }
@@ -1323,8 +1323,10 @@ html[lang="ja"] .contact h2 {
 
   .strength-grid article {
     padding: 16px;
-    padding-top: 24px;
     min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .strength-grid article h4 {
@@ -1358,8 +1360,10 @@ html[lang="ja"] .contact h2 {
 
   .role-board article {
     padding : 1rem;
-    min-height: 150px;
-    /*background: transparent;*/
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .role-board article h4 {
@@ -1367,6 +1371,9 @@ html[lang="ja"] .contact h2 {
     margin-bottom: 1rem;
   }
 
+  .role-board article.article-blank {
+    display: none;
+  }
   .article-blank {
     display: none;
   }
@@ -1583,6 +1590,9 @@ html[lang="ja"] .contact h2 {
     width: 100%;
     padding: 1rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .services-grid-mobile .service-card:last-child {
