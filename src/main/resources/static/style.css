@@ -605,8 +605,8 @@ p {
 .services-art {
   position: absolute;
   top: 180px;
-  /*right: 0;*/
-  right: calc((min(1200px, calc(100vw - 48px)) - 100vw) / 2);
+  right: 0;
+  /*right: calc((min(1200px, calc(100vw - 48px)) - 100vw) / 2);*/
   width: min(61vw, 1020px);
   aspect-ratio: 1113 / 555;
   background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.08) 36%, rgba(0, 0, 0, 0.9) 100%), url("assets/service-background.png") right top / contain no-repeat;
