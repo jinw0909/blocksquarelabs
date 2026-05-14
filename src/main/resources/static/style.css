@@ -40,7 +40,7 @@ html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #4d8cff, #0057ff);
   border-radius: 999px;
-  border: 2px solid #050505;
+  /*border: 2px solid #050505;*/
 }
 
 html::-webkit-scrollbar-thumb:hover,
@@ -1419,6 +1419,7 @@ html[lang="ja"] .contact h2 {
   .services-art {
     width: 100%;
     opacity: 0.35;
+    right: 0;
   }
 
   .services-title h2 {
