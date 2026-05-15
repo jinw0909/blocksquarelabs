@@ -54,7 +54,8 @@ public class SecurityConfig {
                                 "/*.json",
                                 "/*.ico",
                                 "/*.txt",
-                                "/*.xml"
+                                "/*.xml",
+                                "/*.webmanifest"
                         ).permitAll()
 
                         // 관리자 페이지
