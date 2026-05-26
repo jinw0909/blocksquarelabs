@@ -331,6 +331,16 @@ html[lang="ja"] .hero-tag {
   background: var(--blue);
 }
 
+.hp-field {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  opacity: 0.01;
+  overflow: hidden;
+}
+
 /* ==========================================================================
    About section
    ========================================================================== */

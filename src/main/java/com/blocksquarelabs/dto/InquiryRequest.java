@@ -25,4 +25,7 @@ public class InquiryRequest {
     @Size(max = 2000, message = "문의 내용은 2000자 이하로 입력해주세요.")
     String inquiry;
 
+    @Size(max = 200, message = "잘못된 요청입니다.")
+    private String website;
+
 }
