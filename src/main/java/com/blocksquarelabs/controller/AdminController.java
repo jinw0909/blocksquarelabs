@@ -18,4 +18,11 @@ public class AdminController {
         model.addAttribute("user", userDetails);
         return "admin";
     }
+
+    @GetMapping("/inquiry")
+    public String inquiry(@AuthenticationPrincipal UserDetails userDetails,
+                          Model model) {
+        model.addAttribute("user", userDetails);
+        return "admin-inquiry";
+    }
 }

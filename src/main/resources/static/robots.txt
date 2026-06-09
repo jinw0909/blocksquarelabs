@@ -1,5 +1,7 @@
 User-agent: *
 Disallow: /admin
 Disallow: /login
+Disallow: /api/
+Disallow: /test/
 
 Sitemap: https://www.blocksquarelabs.com/sitemap.xml

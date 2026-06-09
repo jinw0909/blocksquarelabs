@@ -219,3 +219,103 @@ h1 {
         text-align: left;
     }
 }
+
+
+/* Inquiry Test Page */
+.inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.form-group textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 0.9rem 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    outline: none;
+    resize: vertical;
+    background: rgba(0, 0, 0, 0.28);
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+    transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
+}
+
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.form-group textarea:focus {
+    border-color: rgba(138, 180, 255, 0.85);
+    background: rgba(0, 0, 0, 0.38);
+    box-shadow: 0 0 0 4px rgba(138, 180, 255, 0.16);
+}
+
+.success-box {
+    margin-bottom: 1.2rem;
+    padding: 0.85rem 0.95rem;
+    border: 1px solid rgba(109, 224, 255, 0.28);
+    border-radius: 12px;
+    background: rgba(109, 224, 255, 0.1);
+    color: #b8f2ff;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.admin-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 0.4rem;
+}
+
+.admin-actions .primary-button,
+.admin-actions .secondary-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    text-decoration: none;
+}
+
+.admin-card {
+    max-width: 480px;
+}
+
+.inquiry-card {
+    max-width: 480px;
+}
+
+.form-group textarea {
+    width: 100%;
+    min-height: 150px;
+    max-height: 420px;
+    padding: 0.9rem 0.95rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    outline: none;
+
+    resize: none;
+    field-sizing: content;
+    overflow-y: auto;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    background: rgba(0, 0, 0, 0.28);
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.form-group textarea::-webkit-scrollbar {
+    display: none;
+}

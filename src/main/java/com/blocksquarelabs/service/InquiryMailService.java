@@ -1,6 +1,7 @@
 package com.blocksquarelabs.service;
 
 import com.blocksquarelabs.domain.Inquiry;
+import com.blocksquarelabs.domain.InquiryTest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -39,6 +40,31 @@ public class InquiryMailService {
 
         mailSender.send(message);
     }
+
+
+    public void sendInquiryTestMail(InquiryTest inquiryTest) {
+
+
+        if (inquiryTest.getSendTo() != null && inquiryTest.getSendTo().contains("\n") || inquiryTest.getSendTo().contains("\r")) {
+            throw new IllegalArgumentException("Invalid sendTo");
+        }
+
+        SimpleMailMessage message = new SimpleMailMessage();
+
+        message.setTo(inquiryTest.getSendTo());
+
+        message.setSubject("[Test] 새로운 문의가 도착했습니다.");
+
+        message.setText(
+                "[Test] 새로운 문의가 등록되었습니다.\n\n" +
+                        "이름: " + inquiryTest.getName() + "\n" +
+                        "문의 내용:\n" + inquiryTest.getInquiry()
+        );
+
+        mailSender.send(message);
+    }
+
+
 
 
 }
