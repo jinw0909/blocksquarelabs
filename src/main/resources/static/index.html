@@ -571,15 +571,93 @@
 <!-- 문의 접수 성공 모달 -->
 <div id="successModal" class="modal-overlay">
     <div class="modal-box">
-        <button class="modal-close" type="button" id="modalClose">&times;</button>
-        <h3 data-i18n="modal.success.title">문의 접수 완료</h3>
-        <p data-i18n="modal.success.copy">
-            문의해 주셔서 감사합니다.<br>
-            담당자가 내용을 확인한 후 최대한 빨리 답변 드리겠습니다.
-        </p>
-        <button data-i18n="modal.ok" class="modal-ok" type="button" id="modalOk">확인</button>
+        <button
+                class="modal-close"
+                type="button"
+                id="modalClose"
+                aria-label="Close"
+                data-i18n-attr="aria-label:modal.closeAria">
+            &times;
+        </button>
+
+        <div id="modalSpinner" class="modal-spinner"></div>
+
+        <div class="modal-state modal-state-loading" data-modal-state="loading">
+            <h3 data-i18n="modal.loading.title">문의 접수 중</h3>
+            <p data-i18n-html="modal.loading.copy">
+                문의를 접수하고 있습니다.<br>
+                잠시만 기다려 주세요.
+            </p>
+        </div>
+
+        <div class="modal-state modal-state-success" data-modal-state="success">
+            <h3 data-i18n="modal.success.title">문의 접수 완료</h3>
+            <p data-i18n-html="modal.success.copy">
+                문의가 정상적으로 접수되었습니다.<br>
+                입력하신 이메일로 접수 확인 메일을 발송했습니다.<br>
+                메일함을 확인해 주세요.
+            </p>
+        </div>
+
+        <div class="modal-state modal-state-fail" data-modal-state="fail">
+            <h3 data-i18n="modal.fail.title">문의 접수 실패</h3>
+            <p data-i18n-html="modal.fail.copy">
+                문의 접수에 실패했습니다.<br>
+                잠시 후 다시 시도해 주세요.
+            </p>
+        </div>
+
+        <div class="modal-state modal-state-timeout" data-modal-state="timeout">
+            <h3 data-i18n="modal.timeout.title">요청 시간 초과</h3>
+            <p data-i18n-html="modal.timeout.copy">
+                요청 시간이 초과되었습니다.<br>
+                네트워크 상태를 확인한 후 다시 시도해 주세요.
+            </p>
+        </div>
+
+        <div class="modal-state modal-state-network" data-modal-state="network">
+            <h3 data-i18n="modal.network.title">네트워크 오류</h3>
+            <p data-i18n-html="modal.network.copy">
+                네트워크 오류가 발생했습니다.<br>
+                잠시 후 다시 시도해 주세요.
+            </p>
+        </div>
+
+        <button class="modal-ok" type="button" id="modalOk" data-i18n="modal.ok">확인</button>
     </div>
 </div>
+
+
+<!--<div id="successModal" class="modal-overlay">-->
+<!--    <div class="modal-box">-->
+<!--        <button class="modal-close" type="button" id="modalClose">&times;</button>-->
+
+<!--        <div id="modalSpinner" class="modal-spinner"></div>-->
+
+<!--        <h3 id="modalTitle">문의 접수 중</h3>-->
+
+<!--        <p id="modalMessage">-->
+<!--            문의를 접수하고 있습니다.<br>-->
+<!--            잠시만 기다려 주세요.-->
+<!--        </p>-->
+
+<!--        <button class="modal-ok" type="button" id="modalOk">확인</button>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+<!--<div id="successModal" class="modal-overlay">-->
+<!--    <div class="modal-box">-->
+<!--        <button class="modal-close" type="button" id="modalClose">&times;</button>-->
+<!--        <h3 data-i18n="modal.success.title">문의 접수 완료</h3>-->
+<!--        <p data-i18n="modal.success.copy">-->
+<!--            문의해 주셔서 감사합니다.<br>-->
+<!--            담당자가 내용을 확인한 후 최대한 빨리 답변 드리겠습니다.-->
+<!--        </p>-->
+<!--        <button data-i18n="modal.ok" class="modal-ok" type="button" id="modalOk">확인</button>-->
+<!--    </div>-->
+<!--</div>-->
 <!-- 페이지 인터랙션 스크립트 -->
 <script src="script.js"></script>
 </body>

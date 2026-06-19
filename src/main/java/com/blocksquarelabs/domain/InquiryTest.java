@@ -1,6 +1,5 @@
 package com.blocksquarelabs.domain;
 
-import com.blocksquarelabs.dto.InquiryRequest;
 import com.blocksquarelabs.dto.InquiryTestRequest;
 import jakarta.persistence.*;
 import lombok.AccessLevel;

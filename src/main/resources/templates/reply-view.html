@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>문의 답변 확인</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.css}">
+
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background:
+                    radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 32%),
+                    linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+            color: #111827;
+            font-family: Arial, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .page-wrapper {
+            width: 100%;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 48px 20px 80px;
+        }
+
+        .header-card {
+            padding: 28px;
+            margin-bottom: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+        }
+
+        .badge-confirmed {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #ecfdf5;
+            color: #047857;
+            border: 1px solid #a7f3d0;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .title {
+            margin: 0;
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .subtitle {
+            margin: 8px 0 0;
+            color: #6b7280;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            padding: 14px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            background: #fff;
+        }
+
+        .info-label {
+            display: block;
+            margin-bottom: 5px;
+            color: #6b7280;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .info-value {
+            color: #111827;
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+        .content-card {
+            margin-bottom: 18px;
+            padding: 24px;
+            border: 1px solid #e5e7eb;
+            border-radius: 22px;
+            background: #fff;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        }
+
+        .section-title {
+            margin: 0 0 14px;
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .content-box {
+            padding: 18px;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            background: #f8fafc;
+            color: #1f2937;
+            white-space: pre-wrap;
+            line-height: 1.75;
+            font-size: 15px;
+        }
+
+        .reply-box {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+        }
+
+        .footer-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 28px;
+        }
+
+        .home-btn {
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: #111827;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .home-btn:hover {
+            background: #374151;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .page-wrapper {
+                padding: 28px 14px 64px;
+            }
+
+            .header-card,
+            .content-card {
+                padding: 20px;
+            }
+
+            .title {
+                font-size: 26px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page-wrapper">
+
+    <div class="header-card">
+        <span class="badge-confirmed">답변 확인 완료</span>
+
+        <h1 class="title">문의 답변입니다</h1>
+
+        <p class="subtitle">
+            남겨주신 문의에 대한 답변을 아래에서 확인하실 수 있습니다.
+            이 페이지를 열면 답변 확인 시간이 관리자에게 기록됩니다.
+        </p>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-item">
+            <span class="info-label">문의자</span>
+            <span class="info-value" th:text="${inquiry.name}">홍길동</span>
+        </div>
+
+        <div class="info-item">
+            <span class="info-label">이메일</span>
+            <span class="info-value" th:text="${inquiry.email}">test@example.com</span>
+        </div>
+
+        <div class="info-item">
+            <span class="info-label">문의 유형</span>
+            <span class="info-value" th:text="${inquiry.type}">GENERAL</span>
+        </div>
+
+        <div class="info-item">
+            <span class="info-label">문의 접수일</span>
+            <span class="info-value"
+                  th:text="${#temporals.format(inquiry.createdAt, 'yyyy-MM-dd HH:mm')}">
+                2026-06-17 15:00
+            </span>
+        </div>
+
+        <div class="info-item" th:if="${reply.lastSentAt != null}">
+            <span class="info-label">답변 전송일</span>
+            <span class="info-value"
+                  th:text="${#temporals.format(reply.lastSentAt, 'yyyy-MM-dd HH:mm')}">
+                2026-06-17 18:00
+            </span>
+        </div>
+
+        <div class="info-item" th:if="${reply.viewedAt != null}">
+            <span class="info-label">답변 확인일</span>
+            <span class="info-value"
+                  th:text="${#temporals.format(reply.viewedAt, 'yyyy-MM-dd HH:mm')}">
+                2026-06-17 18:15
+            </span>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <h2 class="section-title">문의 내용</h2>
+
+        <div class="content-box" th:text="${inquiry.inquiry}">
+            문의 내용입니다.
+        </div>
+    </div>
+
+    <div class="content-card">
+        <h2 class="section-title">답변 내용</h2>
+
+        <div class="content-box reply-box" th:text="${reply.content}">
+            답변 내용입니다.
+        </div>
+    </div>
+
+    <div class="footer-actions">
+        <a class="home-btn" th:href="@{/}">
+            홈으로 이동
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

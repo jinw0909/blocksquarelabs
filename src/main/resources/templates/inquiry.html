@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inquiry List</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.css}">
+    <script th:src="@{/js/bootstrap/bootstrap.bundle.js}" defer></script>
+
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background:
+                    radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 32%),
+                    linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+            color: #111827;
+            font-family: Arial, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .page-wrapper {
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        .page-header {
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid #e5e7eb;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.88);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+        }
+
+        .page-title {
+            margin: 0;
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: #111827;
+        }
+
+        .page-subtitle {
+            margin: 6px 0 0;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .admin-home-btn {
+            border-radius: 999px;
+            padding: 8px 15px;
+            border: 1px solid #d1d5db;
+            color: #374151;
+            background: #fff;
+        }
+
+        .admin-home-btn:hover {
+            background: #111827;
+            border-color: #111827;
+            color: #fff;
+        }
+
+        .empty-box {
+            padding: 42px;
+            border: 1px dashed #cbd5e1;
+            border-radius: 20px;
+            background: #fff;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        .inquiry-card {
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            border-radius: 22px;
+            background: #fff;
+            box-shadow: 0 16px 38px rgba(15, 23, 42, 0.07);
+        }
+
+        .inquiry-card + .inquiry-card {
+            margin-top: 18px;
+        }
+
+        .inquiry-card .card-body {
+            padding: 24px;
+        }
+
+        .inquiry-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .inquiry-title {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #111827;
+        }
+
+        .inquiry-id {
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 12px;
+            font-weight: 800;
+            white-space: nowrap;
+            border: 1px solid #bfdbfe;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .meta-item {
+            padding: 13px 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 15px;
+            background: #f9fafb;
+        }
+        .meta-item-wide {
+            grid-column: 1 / -1;
+        }
+
+        .meta-label {
+            display: block;
+            margin-bottom: 5px;
+            color: #6b7280;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .meta-value {
+            color: #111827;
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+        .content-box {
+            padding: 18px;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            background: #f8fafc;
+            color: #1f2937;
+            white-space: pre-wrap;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .reply-section {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .reply-toggle-btn {
+            width: 100%;
+            padding: 13px 15px;
+            border-radius: 15px;
+            border: 1px solid #dbe3ef;
+            background: #f8fafc;
+            color: #111827;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .reply-toggle-btn:hover {
+            background: #eef2ff;
+            border-color: #c7d2fe;
+            color: #111827;
+        }
+
+        .reply-toggle-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+        }
+
+        .reply-count {
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: #e0e7ff;
+            color: #3730a3;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .reply-arrow {
+            color: #6b7280;
+            transition: transform 0.2s ease;
+        }
+
+        .reply-toggle-btn[aria-expanded="true"] .reply-arrow {
+            transform: rotate(180deg);
+        }
+
+        .reply-list {
+            padding-top: 12px;
+        }
+
+        .reply-card {
+            padding: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 15px;
+            background: #ffffff;
+        }
+
+        .reply-meta {
+            margin-bottom: 10px;
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+        .reply-content {
+            color: #1f2937;
+            white-space: pre-wrap;
+            line-height: 1.65;
+            font-size: 14px;
+        }
+
+        .reply-empty {
+            margin: 0;
+            padding: 15px;
+            border-radius: 15px;
+            background: #f9fafb;
+            color: #6b7280;
+            font-size: 14px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-reply {
+            border-radius: 999px;
+            padding: 9px 16px;
+            background: #111827;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .btn-reply:hover {
+            background: #374151;
+            color: #fff;
+        }
+
+        .btn-resend {
+            border-radius: 999px;
+            padding: 9px 16px;
+            border: 1px solid #d1d5db;
+            background: #fff;
+            color: #374151;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .btn-resend:hover {
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        .pagination {
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .page-link {
+            min-width: 40px;
+            border-radius: 12px !important;
+            border: 1px solid #d1d5db;
+            background: #fff;
+            color: #374151;
+            text-align: center;
+        }
+
+        .page-link:hover {
+            border-color: #111827;
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        .page-item.active .page-link {
+            border-color: #111827;
+            background: #111827;
+            color: #fff;
+            font-weight: 800;
+        }
+
+        @media (max-width: 768px) {
+            .page-wrapper {
+                padding: 24px 14px 64px;
+            }
+
+            .page-header {
+                padding: 20px;
+                align-items: flex-start !important;
+                flex-direction: column;
+            }
+
+            .page-title {
+                font-size: 26px;
+            }
+
+            .inquiry-card .card-body {
+                padding: 18px;
+            }
+
+            .inquiry-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn-reply,
+            .btn-resend {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <style>
+        .reply-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .reply-status {
+            padding: 5px 9px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 800;
+            white-space: nowrap;
+            border: 1px solid #e5e7eb;
+            background: #f9fafb;
+            color: #374151;
+        }
+
+        .reply-status-draft {
+            background: #fff7ed;
+            color: #c2410c;
+            border-color: #fed7aa;
+        }
+
+        .reply-status-sent {
+            background: #ecfdf5;
+            color: #047857;
+            border-color: #a7f3d0;
+        }
+
+        .reply-status-updated {
+            background: #eff6ff;
+            color: #1d4ed8;
+            border-color: #bfdbfe;
+        }
+
+        .reply-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .reply-actions form {
+            margin: 0;
+        }
+
+        .reply-create-box {
+            margin-top: 14px;
+            padding: 18px;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            background: #f8fafc;
+        }
+
+        .reply-form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #374151;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .reply-textarea {
+            border-radius: 14px;
+            border-color: #d1d5db;
+            font-size: 14px;
+            line-height: 1.6;
+            resize: vertical;
+        }
+
+        .reply-textarea:focus {
+            border-color: #111827;
+            box-shadow: 0 0 0 0.2rem rgba(17, 24, 39, 0.12);
+        }
+
+        .admin-alert {
+            border-radius: 16px;
+            margin-bottom: 18px;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .reply-draft-count {
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: #fff7ed;
+            color: #c2410c;
+            border: 1px solid #fed7aa;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .email-verified-badge {
+            display: inline-block;
+            margin-left: 6px;
+            padding: 3px 7px;
+            border-radius: 999px;
+            background: #ecfdf5;
+            color: #047857;
+            border: 1px solid #a7f3d0;
+            font-size: 11px;
+            font-weight: 800;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 768px) {
+            .reply-card-header {
+                flex-direction: column;
+            }
+
+            .reply-actions {
+                flex-direction: column;
+            }
+
+            .reply-actions .btn,
+            .reply-actions form,
+            .reply-actions form button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page-wrapper">
+
+    <div class="page-header d-flex justify-content-between align-items-center gap-3">
+        <div>
+            <h1 class="page-title">문의 목록</h1>
+            <p class="page-subtitle">고객 문의를 확인하고 답변 메일을 관리합니다.</p>
+        </div>
+
+        <a class="btn admin-home-btn btn-sm" th:href="@{/admin}">
+            관리자 홈
+        </a>
+    </div>
+
+    <div th:if="${successMessage}" class="alert alert-success alert-dismissible fade show admin-alert" role="alert">
+        <span th:text="${successMessage}">성공 메시지</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div th:if="${errorMessage}" class="alert alert-danger alert-dismissible fade show admin-alert" role="alert">
+        <span th:text="${errorMessage}">에러 메시지</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div th:if="${inquiryList.empty}" class="empty-box">
+        등록된 문의가 없습니다.
+    </div>
+
+    <div th:each="inquiry : ${inquiryList.content}" class="card inquiry-card">
+        <div class="card-body">
+
+            <div class="inquiry-top">
+                <div>
+                    <h2 class="inquiry-title">
+                        문의
+                        <span class="inquiry-id">
+                            #<span th:text="${inquiry.inquiryId}">1</span>
+                        </span>
+                    </h2>
+                </div>
+
+                <span class="status-badge" th:text="${inquiry.status != null ? inquiry.status.label : '접수'}">
+                    접수
+                </span>
+            </div>
+
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <span class="meta-label">이름</span>
+                    <span class="meta-value" th:text="${inquiry.name}">홍길동</span>
+                </div>
+
+                <div class="meta-item">
+                    <span class="meta-label">이메일</span>
+                    <span class="meta-value">
+                        <span th:text="${inquiry.email}">test@example.com</span>
+
+                        <span th:if="${inquiry.verified}"
+                              class="email-verified-badge">
+                            인증됨
+                        </span>
+                    </span>
+                </div>
+
+                <div class="meta-item">
+                    <span class="meta-label">문의 유형</span>
+                    <span class="meta-value" th:text="${inquiry.type}">GENERAL</span>
+                </div>
+
+                <div class="meta-item">
+                    <span class="meta-label">접수일</span>
+                    <span class="meta-value"
+                          th:text="${#temporals.format(inquiry.createdAt, 'yyyy-MM-dd HH:mm')}">
+                        2026-06-17 15:00
+                    </span>
+                </div>
+
+                <div class="meta-item meta-item-wide">
+                    <span class="meta-label">상사 전달</span>
+                    <span class="meta-value" th:if="${inquiry.managerNotifiedAt != null}">
+                        전달 완료
+                        <span th:text="${#temporals.format(inquiry.managerNotifiedAt, 'yyyy-MM-dd HH:mm')}">
+                            2026-06-19 10:00
+                        </span>
+                    </span>
+                    <span class="meta-value text-muted" th:if="${inquiry.managerNotifiedAt == null}">
+                        미전달
+                    </span>
+                </div>
+            </div>
+
+            <div class="content-box" th:text="${inquiry.content}">
+                문의 내용
+            </div>
+
+            <div class="reply-section">
+
+                <button class="reply-toggle-btn"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        th:data-bs-target="'#replyCollapse-' + ${inquiry.inquiryId}"
+                        aria-expanded="false"
+                        th:aria-controls="'replyCollapse-' + ${inquiry.inquiryId}">
+
+                    <span class="reply-toggle-left">
+                        답변 내역
+                        <span class="reply-count"
+                              th:text="${#lists.size(inquiry.replies)} + '개'">
+                            0개
+                        </span>
+
+                        <span class="reply-draft-count"
+                              th:if="${inquiry.draftReplyCount > 0}"
+                              th:text="'미전송 ' + ${inquiry.draftReplyCount} + '개'">
+                            미전송 1개
+                        </span>
+                    </span>
+
+                    <span class="reply-arrow">⌄</span>
+                </button>
+
+                <div class="collapse"
+                     th:id="'replyCollapse-' + ${inquiry.inquiryId}">
+
+                    <div class="reply-list">
+
+                        <div th:if="${#lists.isEmpty(inquiry.replies)}">
+                            <p class="reply-empty">아직 답변이 없습니다.</p>
+                        </div>
+
+                        <div th:each="reply : ${inquiry.replies}" class="reply-card">
+
+                            <div class="reply-card-header">
+                                <div class="reply-meta">
+                                    <div>
+                                        작성자:
+                                        <strong th:text="${reply.createdByName}">admin</strong>
+                                    </div>
+
+                                    <div>
+                                        작성일:
+                                        <span th:text="${#temporals.format(reply.createdAt, 'yyyy-MM-dd HH:mm')}">
+                                            2026-06-17 15:10
+                                        </span>
+                                    </div>
+
+                                    <div th:if="${reply.updatedAt != null}">
+                                        수정일:
+                                        <span th:text="${#temporals.format(reply.updatedAt, 'yyyy-MM-dd HH:mm')}">
+                                            2026-06-17 15:20
+                                        </span>
+                                    </div>
+
+                                    <div th:if="${reply.lastSentAt != null}">
+                                        마지막 전송:
+                                        <span th:text="${#temporals.format(reply.lastSentAt, 'yyyy-MM-dd HH:mm')}">
+                                            2026-06-17 15:30
+                                        </span>
+                                    </div>
+                                    <div th:if="${reply.viewedAt != null}">
+                                        고객 확인:
+                                        <span th:text="${#temporals.format(reply.viewedAt, 'yyyy-MM-dd HH:mm')}">
+                                            2026-06-17 18:15
+                                        </span>
+                                    </div>
+                                    <div th:if="${reply.viewedAt == null and reply.lastSentAt != null}">
+                                        고객 확인:
+                                        <span class="text-muted">아직 확인 안 함</span>
+                                    </div>
+                                </div>
+
+                                <span class="reply-status"
+                                      th:classappend="' reply-status-' + ${#strings.toLowerCase(reply.status.name())}"
+                                      th:text="${reply.status}">
+                                    DRAFT
+                                </span>
+                            </div>
+
+                            <div class="reply-content" th:text="${reply.content}">
+                                답변 내용
+                            </div>
+
+                            <div class="reply-actions">
+
+                                <button th:if="${reply.updatable}"
+                                        class="btn btn-sm btn-outline-secondary"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        th:data-bs-target="'#replyEditForm-' + ${reply.replyId}">
+                                    수정
+                                </button>
+
+                                <form th:if="${reply.deletable}"
+                                      th:action="@{/admin/reply/{id}/delete(id=${reply.replyId})}"
+                                      method="post"
+                                      onsubmit="return confirm('전송 전 답변을 삭제하시겠습니까?');">
+
+                                    <input type="hidden" name="page" th:value="${inquiryList.number}">
+                                    <input type="hidden" name="size" th:value="${inquiryList.size}">
+
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                        삭제
+                                    </button>
+                                </form>
+
+                                <form th:action="@{/admin/reply/{id}/send(id=${reply.replyId})}"
+                                      method="post"
+                                      onsubmit="return confirm('이 답변 메일을 전송하시겠습니까?');">
+
+                                    <input type="hidden" name="page" th:value="${inquiryList.number}">
+                                    <input type="hidden" name="size" th:value="${inquiryList.size}">
+
+                                    <button type="submit"
+                                            class="btn btn-sm btn-outline-primary"
+                                            th:text="${reply.status.name() == 'SENT'} ? '메일 재전송' : '메일 전송'">
+                                        메일 전송
+                                    </button>
+                                </form>
+
+                            </div>
+
+                            <div class="collapse mt-3"
+                                 th:if="${reply.updatable}"
+                                 th:id="'replyEditForm-' + ${reply.replyId}">
+
+                                <form th:action="@{/admin/reply/{id}/update(id=${reply.replyId})}"
+                                      method="post">
+
+                                    <input type="hidden" name="page" th:value="${inquiryList.number}">
+                                    <input type="hidden" name="size" th:value="${inquiryList.size}">
+
+                                    <textarea name="content"
+                                              class="form-control reply-textarea"
+                                              rows="5"
+                                              required
+                                              th:text="${reply.content}"></textarea>
+
+                                    <div class="d-flex justify-content-end gap-2 mt-2">
+                                        <button type="submit" class="btn btn-dark btn-sm">
+                                            수정 저장
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-reply"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        th:data-bs-target="'#replyCreateForm-' + ${inquiry.inquiryId}">
+                    답변 작성
+                </button>
+
+                <form th:action="@{/admin/inquiry/{id}/notify-manager(id=${inquiry.inquiryId})}"
+                      method="post"
+                      onsubmit="return confirm('이 문의를 상사에게 전달하시겠습니까?');">
+
+                    <input type="hidden" name="page" th:value="${inquiryList.number}">
+                    <input type="hidden" name="size" th:value="${inquiryList.size}">
+
+                    <button type="submit"
+                            class="btn btn-resend"
+                            th:text="${inquiry.managerNotifiedAt != null} ? '상사에게 다시 전달' : '상사에게 전달'">
+                        상사에게 전달
+                    </button>
+                </form>
+            </div>
+
+            <div class="collapse reply-create-box"
+                 th:id="'replyCreateForm-' + ${inquiry.inquiryId}">
+
+                <form th:action="@{/admin/inquiry/{id}/reply(id=${inquiry.inquiryId})}" method="post">
+
+                    <input type="hidden" name="page" th:value="${inquiryList.number}">
+                    <input type="hidden" name="size" th:value="${inquiryList.size}">
+
+                    <label class="reply-form-label">새 답변 작성</label>
+
+                    <textarea name="content"
+                              class="form-control reply-textarea"
+                              rows="6"
+                              placeholder="답변 내용을 입력하세요."
+                              required></textarea>
+
+<!--                    <div class="d-flex justify-content-end gap-2 mt-3">-->
+<!--                        <button type="button"-->
+<!--                                class="btn btn-outline-secondary btn-sm"-->
+<!--                                data-bs-toggle="collapse"-->
+<!--                                th:data-bs-target="'#replyCreateForm-' + ${inquiry.inquiryId}">-->
+<!--                            취소-->
+<!--                        </button>-->
+
+<!--                        <button type="submit" class="btn btn-dark btn-sm">-->
+<!--                            답변 저장-->
+<!--                        </button>-->
+<!--                    </div>-->
+                        <div class="d-flex justify-content-end gap-2 mt-3">
+                            <button type="button"
+                                    class="btn btn-outline-secondary btn-sm"
+                                    data-bs-toggle="collapse"
+                                    th:data-bs-target="'#replyCreateForm-' + ${inquiry.inquiryId}">
+                                취소
+                            </button>
+
+                            <button type="submit"
+                                    name="action"
+                                    value="save"
+                                    class="btn btn-outline-dark btn-sm">
+                                임시 저장
+                            </button>
+
+                            <button type="submit"
+                                    name="action"
+                                    value="send"
+                                    class="btn btn-dark btn-sm"
+                                    onclick="return confirm('답변을 저장하고 메일로 전송하시겠습니까?');">
+                                저장 후 메일 전송
+                            </button>
+                        </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <nav th:if="${inquiryList.totalPages > 1}" class="mt-4">
+        <ul class="pagination">
+
+            <li class="page-item" th:if="${inquiryList.hasPrevious()}">
+                <a class="page-link"
+                   th:href="@{/admin/inquiry(page=${inquiryList.number - 1}, size=${inquiryList.size})}">
+                    이전
+                </a>
+            </li>
+
+            <li class="page-item"
+                th:each="pageNum : ${#numbers.sequence(0, inquiryList.totalPages - 1)}"
+                th:classappend="${pageNum == inquiryList.number} ? 'active'">
+                <a class="page-link"
+                   th:href="@{/admin/inquiry(page=${pageNum}, size=${inquiryList.size})}"
+                   th:text="${pageNum + 1}">
+                    1
+                </a>
+            </li>
+
+            <li class="page-item" th:if="${inquiryList.hasNext()}">
+                <a class="page-link"
+                   th:href="@{/admin/inquiry(page=${inquiryList.number + 1}, size=${inquiryList.size})}">
+                    다음
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+</div>
+
+</body>
+</html>

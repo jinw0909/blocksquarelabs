@@ -178,19 +178,35 @@
         "emailPlaceholder": "이메일",
         "servicePlaceholder": "서비스 종류",
         "messagePlaceholder": "문의내용",
-        "submit": "문의 보내기"
+        "submit": "문의 보내기",
+        "sending": "전송 중...",
+        "submitted": "접수 완료"
       },
       "footer": "사업자 번호&nbsp;&nbsp;|&nbsp;&nbsp;706-86-03507<br />주소&nbsp;&nbsp;|&nbsp;&nbsp;서울특별시 송파구 송이로 135 5F<br />CEO / 대표&nbsp;&nbsp;|&nbsp;&nbsp;원혁"
     },
-    "modal" : {
-      "success" : {
+    "modal": {
+      "ok": "확인",
+      "closeAria": "닫기",
+      "loading": {
+        "title": "문의 접수 중",
+        "copy": "문의를 접수하고 있습니다.<br>잠시만 기다려 주세요."
+      },
+      "success": {
         "title": "문의 접수 완료",
-        "copy": "문의가 정상적으로 접수되었습니다."
+        "copy": "문의가 정상적으로 접수되었습니다.<br>입력하신 이메일로 접수 확인 메일을 발송했습니다.<br>메일함을 확인해 주세요."
       },
-      "error" : {
-        "insufficient": "모든 항목을 입력해주세요"
+      "fail": {
+        "title": "문의 접수 실패",
+        "copy": "문의 접수에 실패했습니다.<br>잠시 후 다시 시도해 주세요."
       },
-      "ok" : "OK"
+      "timeout": {
+        "title": "요청 시간 초과",
+        "copy": "요청 시간이 초과되었습니다.<br>네트워크 상태를 확인한 후 다시 시도해 주세요."
+      },
+      "network": {
+        "title": "네트워크 오류",
+        "copy": "네트워크 오류가 발생했습니다.<br>잠시 후 다시 시도해 주세요."
+      }
     }
   },
   "en": {
@@ -372,18 +388,35 @@
         "emailPlaceholder": "Email",
         "servicePlaceholder": "Service Type",
         "messagePlaceholder": "Message",
-        "submit": "Submit Request"
+        "submit": "Submit Request",
+        "sending": "Sending...",
+        "submitted": "Submitted"
       },
       "footer": "Business Registration Number&nbsp;&nbsp;|&nbsp;&nbsp;706-86-03507<br />Registered Address&nbsp;&nbsp;|&nbsp;&nbsp;5F, 135 Songi-ro, Songpa-gu, Seoul, Korea<br />CEO / Representative&nbsp;&nbsp;|&nbsp;&nbsp;Theo Won"
     },
-    "modal" : {
-      "success" : {
-        "title": "Submit Successful",
-        "copy": "Thanks for reaching out. We’ll review your request and get back to you shortly"
+    "modal": {
+      "ok": "확인",
+      "closeAria": "닫기",
+      "loading": {
+        "title": "문의 접수 중",
+        "copy": "문의를 접수하고 있습니다.<br>잠시만 기다려 주세요."
       },
-      "error" : {
-        "insufficient": "Please fill in all fields"
-      },"ok" : "OK"
+      "success": {
+        "title": "문의 접수 완료",
+        "copy": "문의가 정상적으로 접수되었습니다.<br>입력하신 이메일로 접수 확인 메일을 발송했습니다.<br>메일함을 확인해 주세요."
+      },
+      "fail": {
+        "title": "문의 접수 실패",
+        "copy": "문의 접수에 실패했습니다.<br>잠시 후 다시 시도해 주세요."
+      },
+      "timeout": {
+        "title": "요청 시간 초과",
+        "copy": "요청 시간이 초과되었습니다.<br>네트워크 상태를 확인한 후 다시 시도해 주세요."
+      },
+      "network": {
+        "title": "네트워크 오류",
+        "copy": "네트워크 오류가 발생했습니다.<br>잠시 후 다시 시도해 주세요."
+      }
     }
   },
   "jp": {
@@ -565,19 +598,35 @@
         "emailPlaceholder": "メールアドレス",
         "servicePlaceholder": "サービス種類",
         "messagePlaceholder": "お問い合わせ内容",
-        "submit": "お問い合わせを送信"
+        "submit": "お問い合わせを送信",
+        "sending": "送信中...",
+        "submitted": "受付完了"
       },
       "footer": "事業者番号&nbsp;&nbsp;|&nbsp;&nbsp;706-86-03507<br />住所&nbsp;&nbsp;|&nbsp;&nbsp;ソウル特別市 松坡区 松伊路135 5F<br />CEO / 代表者&nbsp;&nbsp;|&nbsp;&nbsp;ウォン・ヒョク"
     },
-    "modal" : {
-      "success" : {
-        "title": "お問い合わせが正常に送信されました。",
-        "copy": "お問い合わせありがとうございます。内容を確認のうえ、担当者よりできるだけ早くご連絡いたします。"
+    "modal": {
+      "ok": "확인",
+      "closeAria": "닫기",
+      "loading": {
+        "title": "문의 접수 중",
+        "copy": "문의를 접수하고 있습니다.<br>잠시만 기다려 주세요."
       },
-      "error" : {
-        "insufficient": "すべての項目を入力してください。"
+      "success": {
+        "title": "문의 접수 완료",
+        "copy": "문의가 정상적으로 접수되었습니다.<br>입력하신 이메일로 접수 확인 메일을 발송했습니다.<br>메일함을 확인해 주세요."
       },
-      "ok" : "OK"
+      "fail": {
+        "title": "문의 접수 실패",
+        "copy": "문의 접수에 실패했습니다.<br>잠시 후 다시 시도해 주세요."
+      },
+      "timeout": {
+        "title": "요청 시간 초과",
+        "copy": "요청 시간이 초과되었습니다.<br>네트워크 상태를 확인한 후 다시 시도해 주세요."
+      },
+      "network": {
+        "title": "네트워크 오류",
+        "copy": "네트워크 오류가 발생했습니다.<br>잠시 후 다시 시도해 주세요."
+      }
     }
   },
   "cn": {
@@ -759,20 +808,35 @@
         "emailPlaceholder": "邮箱",
         "servicePlaceholder": "服务类型",
         "messagePlaceholder": "咨询内容",
-        "submit": "提交咨询"
+        "submit": "提交咨询",
+        "sending": "发送中...",
+        "submitted": "已受理"
       },
       "footer": "营业执照号码&nbsp;&nbsp;|&nbsp;&nbsp;706-86-03507<br />地址&nbsp;&nbsp;|&nbsp;&nbsp;韩国首尔特别市松坡区松伊路135号 5F<br />CEO / 法人代表&nbsp;&nbsp;|&nbsp;&nbsp;WON HYUK"
     },
-    "modal" : {
-      "success" : {
-        "title": "咨询提交成功",
-        "copy": "感谢您的咨询。我们会尽快确认内容，并由负责人回复您。"
+    "modal": {
+      "ok": "확인",
+      "closeAria": "닫기",
+      "loading": {
+        "title": "문의 접수 중",
+        "copy": "문의를 접수하고 있습니다.<br>잠시만 기다려 주세요."
       },
-      "error" : {
-        "insufficient": "请填写所有项目。"
+      "success": {
+        "title": "문의 접수 완료",
+        "copy": "문의가 정상적으로 접수되었습니다.<br>입력하신 이메일로 접수 확인 메일을 발송했습니다.<br>메일함을 확인해 주세요."
       },
-      "ok" : "OK"
+      "fail": {
+        "title": "문의 접수 실패",
+        "copy": "문의 접수에 실패했습니다.<br>잠시 후 다시 시도해 주세요."
+      },
+      "timeout": {
+        "title": "요청 시간 초과",
+        "copy": "요청 시간이 초과되었습니다.<br>네트워크 상태를 확인한 후 다시 시도해 주세요."
+      },
+      "network": {
+        "title": "네트워크 오류",
+        "copy": "네트워크 오류가 발생했습니다.<br>잠시 후 다시 시도해 주세요."
+      }
     }
-
   }
 }

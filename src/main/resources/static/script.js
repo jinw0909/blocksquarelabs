@@ -312,10 +312,231 @@ updateActiveNavByScroll();
    Contact form / success modal
 ============================== */
 
+// const contactForm = document.getElementById("contactForm");
+// const successModal = document.getElementById("successModal");
+// const modalClose = document.getElementById("modalClose");
+// const modalOk = document.getElementById("modalOk");
+//
+// if (contactForm) {
+//   contactForm.addEventListener("submit", async function (e) {
+//     e.preventDefault();
+//
+//     const data = {
+//       name: contactForm.name.value,
+//       email: contactForm.email.value,
+//       type: contactForm.type.value,
+//       inquiry: contactForm.inquiry.value,
+//       website: contactForm.website.value,
+//     };
+//
+//     try {
+//       const response = await fetch("/api/inquiry", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(data),
+//       });
+//
+//       if (response.status === 200) {
+//         successModal.classList.add("show");
+//         contactForm.reset();
+//       } else {
+//         alert("문의 전송에 실패했습니다.");
+//       }
+//     } catch (error) {
+//       console.error(error);
+//       alert("네트워크 오류");
+//     }
+//   });
+// }
+
+
+
+// const contactForm = document.getElementById("contactForm");
+// const successModal = document.getElementById("successModal");
+// const modalClose = document.getElementById("modalClose");
+// const modalOk = document.getElementById("modalOk");
+//
+// const modalTitle = document.getElementById("modalTitle");
+// const modalMessage = document.getElementById("modalMessage");
+// const modalSpinner = document.getElementById("modalSpinner");
+//
+// function openModal() {
+//   successModal?.classList.add("show");
+// }
+//
+// function closeModal() {
+//   successModal?.classList.remove("show");
+// }
+//
+// function setModalLoading() {
+//   modalTitle.textContent = "문의 접수 중";
+//   modalMessage.innerHTML = "문의를 접수하고 있습니다.<br>잠시만 기다려 주세요.";
+//   modalSpinner.style.display = "block";
+//   modalOk.style.display = "none";
+//   modalClose.style.display = "none";
+// }
+//
+// function setModalSuccess() {
+//   modalTitle.textContent = "문의 접수 완료";
+//   modalMessage.innerHTML =
+//       "문의가 정상적으로 접수되었습니다.<br>" +
+//       "입력하신 이메일로 접수 확인 메일을 발송했습니다.<br>" +
+//       "메일함을 확인해 주세요.";
+//   modalSpinner.style.display = "none";
+//   modalOk.style.display = "inline-flex";
+//   modalClose.style.display = "block";
+// }
+//
+// function setModalFail(message = "문의 접수에 실패했습니다.<br>잠시 후 다시 시도해 주세요.") {
+//   modalTitle.textContent = "문의 접수 실패";
+//   modalMessage.innerHTML = message;
+//   modalSpinner.style.display = "none";
+//   modalOk.style.display = "inline-flex";
+//   modalClose.style.display = "block";
+// }
+//
+// if (contactForm) {
+//   contactForm.addEventListener("submit", async function (e) {
+//     e.preventDefault();
+//
+//     const data = {
+//       name: contactForm.name.value,
+//       email: contactForm.email.value,
+//       type: contactForm.type.value,
+//       inquiry: contactForm.inquiry.value,
+//       website: contactForm.website.value,
+//     };
+//
+//     setModalLoading();
+//     openModal();
+//
+//     const controller = new AbortController();
+//     const timeoutId = setTimeout(() => controller.abort(), 10000);
+//
+//     try {
+//       const response = await fetch("/api/inquiry", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(data),
+//         signal: controller.signal,
+//       });
+//
+//       clearTimeout(timeoutId);
+//
+//       if (response.ok) {
+//         setModalSuccess();
+//         contactForm.reset();
+//       } else {
+//         setModalFail();
+//       }
+//     } catch (error) {
+//       clearTimeout(timeoutId);
+//       console.error(error);
+//
+//       if (error.name === "AbortError") {
+//         setModalFail(
+//             "요청 시간이 초과되었습니다.<br>네트워크 상태를 확인한 후 다시 시도해 주세요."
+//         );
+//       } else {
+//         setModalFail(
+//             "네트워크 오류가 발생했습니다.<br>잠시 후 다시 시도해 주세요."
+//         );
+//       }
+//     }
+//   });
+// }
+//
+// modalClose?.addEventListener("click", closeModal);
+// modalOk?.addEventListener("click", closeModal);
+//
+// successModal?.addEventListener("click", function (e) {
+//   if (e.target === successModal && modalSpinner.style.display !== "block") {
+//     closeModal();
+//   }
+// });
+
+
 const contactForm = document.getElementById("contactForm");
 const successModal = document.getElementById("successModal");
 const modalClose = document.getElementById("modalClose");
 const modalOk = document.getElementById("modalOk");
+const modalSpinner = document.getElementById("modalSpinner");
+const modalStates = document.querySelectorAll("[data-modal-state]");
+const submitButton = contactForm?.querySelector('button[type="submit"]');
+
+let currentModalState = "loading";
+let submitLockedAfterSuccess = false;
+
+function applyCurrentLanguage() {
+  const language = localStorage.getItem(LANGUAGE_STORAGE_KEY) || DEFAULT_LANGUAGE;
+  setLanguage(language);
+}
+
+function setSubmitReady() {
+  if (!submitButton) return;
+
+  submitButton.disabled = false;
+  submitButton.classList.remove("disabled");
+  submitButton.setAttribute("data-i18n", "contact.form.submit");
+  submitLockedAfterSuccess = false;
+
+  applyCurrentLanguage();
+}
+
+function setSubmitLoading() {
+  if (!submitButton) return;
+
+  submitButton.disabled = true;
+  submitButton.classList.add("disabled");
+  submitButton.setAttribute("data-i18n", "contact.form.sending");
+
+  applyCurrentLanguage();
+}
+
+function setSubmitCompleted() {
+  if (!submitButton) return;
+
+  submitButton.disabled = true;
+  submitButton.classList.add("disabled");
+  submitButton.setAttribute("data-i18n", "contact.form.submitted");
+  submitLockedAfterSuccess = true;
+
+  applyCurrentLanguage();
+}
+
+function openModal() {
+  successModal?.classList.add("show");
+}
+
+function closeModal() {
+  successModal?.classList.remove("show");
+}
+
+function setModalState(state) {
+  currentModalState = state;
+
+  modalStates.forEach((element) => {
+    element.style.display = element.dataset.modalState === state ? "block" : "none";
+  });
+
+  const isLoading = state === "loading";
+
+  if (modalSpinner) {
+    modalSpinner.style.display = isLoading ? "block" : "none";
+  }
+
+  if (modalOk) {
+    modalOk.style.display = isLoading ? "none" : "inline-flex";
+  }
+
+  if (modalClose) {
+    modalClose.style.display = isLoading ? "none" : "block";
+  }
+}
 
 if (contactForm) {
   contactForm.addEventListener("submit", async function (e) {
@@ -329,6 +550,13 @@ if (contactForm) {
       website: contactForm.website.value,
     };
 
+    setSubmitLoading();
+    setModalState("loading");
+    openModal();
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+
     try {
       const response = await fetch("/api/inquiry", {
         method: "POST",
@@ -336,43 +564,74 @@ if (contactForm) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
+        signal: controller.signal,
       });
 
-      if (response.status === 200) {
-        successModal.classList.add("show");
-        contactForm.reset();
+      clearTimeout(timeoutId);
+
+      if (response.ok) {
+        setModalState("success");
+        setSubmitCompleted();
+        // contactForm.reset();
       } else {
-        alert("문의 전송에 실패했습니다.");
+        setModalState("fail");
+        setSubmitReady();
       }
     } catch (error) {
+      clearTimeout(timeoutId);
       console.error(error);
-      alert("네트워크 오류");
+
+      if (error.name === "AbortError") {
+        setModalState("timeout");
+      } else {
+        setModalState("network");
+      }
+
+      setSubmitReady();
     }
   });
+
+  contactForm?.querySelectorAll("input, textarea").forEach((field) => {
+    field.addEventListener("input", () => {
+      if (submitLockedAfterSuccess) {
+        setSubmitReady();
+      }
+    });
+  });
 }
+
+modalClose?.addEventListener("click", closeModal);
+modalOk?.addEventListener("click", closeModal);
+
+successModal?.addEventListener("click", function (e) {
+  if (e.target === successModal && currentModalState !== "loading") {
+    closeModal();
+  }
+});
+
 
 // Close the contact success modal.
-function closeModal() {
-  if (successModal) {
-    successModal.classList.remove("show");
-  }
-}
-
-if (modalClose) {
-  modalClose.addEventListener("click", closeModal);
-}
-
-if (modalOk) {
-  modalOk.addEventListener("click", closeModal);
-}
-
-if (successModal) {
-  successModal.addEventListener("click", function (e) {
-    if (e.target === successModal) {
-      closeModal();
-    }
-  });
-}
+// function closeModal() {
+//   if (successModal) {
+//     successModal.classList.remove("show");
+//   }
+// }
+//
+// if (modalClose) {
+//   modalClose.addEventListener("click", closeModal);
+// }
+//
+// if (modalOk) {
+//   modalOk.addEventListener("click", closeModal);
+// }
+//
+// if (successModal) {
+//   successModal.addEventListener("click", function (e) {
+//     if (e.target === successModal) {
+//       closeModal();
+//     }
+//   });
+// }
 
 /* ==============================
    Project showcase slider

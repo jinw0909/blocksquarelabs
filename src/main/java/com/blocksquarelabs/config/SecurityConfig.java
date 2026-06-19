@@ -1,6 +1,7 @@
 package com.blocksquarelabs.config;
 
 import com.blocksquarelabs.repository.MemberRepository;
+import com.blocksquarelabs.security.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,6 +35,15 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // index.html
                         .requestMatchers("/", "/index.html", "/login").permitAll()
+
+                        // 사용자 문의 인증/답변 확인
+                        .requestMatchers(
+                                "/inquiry/verify",
+                                "/inquiry/status",
+                                "/inquiry/verify/fail",
+                                "/inquiry/verify/success",
+                                "/error"
+                        ).permitAll()
 
                         // API
                         .requestMatchers("/api/**").permitAll()
@@ -89,11 +99,12 @@ public class SecurityConfig {
             var member = memberRepository.findByUsername(username)
                     .orElseThrow(() -> new RuntimeException("존재하지 않는 관리자입니다."));
 
-            return User.builder()
-                    .username(member.getUsername())
-                    .password(member.getPassword())
-                    .roles(normalizeRole(member.getRole()))
-                    .build();
+//            return User.builder()
+//                    .username(member.getUsername())
+//                    .password(member.getPassword())
+//                    .roles(normalizeRole(member.getRole()))
+//                    .build();
+            return new CustomUserDetails(member);
         };
     }
 

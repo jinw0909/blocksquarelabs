@@ -6,8 +6,6 @@ import com.blocksquarelabs.service.InquiryTestService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -34,7 +32,7 @@ public class InquiryTestController {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("user", userDetails);
-            return "admin-inquiry";
+            return "admin-test";
         }
 
         InquiryTest result = inquiryTestService.createInquiryTest(request);

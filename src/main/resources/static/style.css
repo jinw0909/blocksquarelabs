@@ -1173,6 +1173,30 @@ html[lang="ja"] .contact h2 {
   color: #fff;
   font-weight: 700;
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-spinner {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 18px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: modalSpin 0.8s linear infinite;
+}
+
+.contact-form button:disabled,
+.contact-form button.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@keyframes modalSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 /* ===== 문의 성공 창 끝 ===== */
 
